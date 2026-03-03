@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akran Nezaketi Hareketi - İmzala</title>
+    <style>
+        :root { --primary-red: #e63946; --bg-gray: #f8f9fa; --text-dark: #1d3557; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: var(--bg-gray); margin: 0; padding: 20px; color: var(--text-dark); }
+        .main-container { max-width: 1100px; margin: 40px auto; display: flex; gap: 30px; flex-wrap: wrap; }
+        
+        /* Sol İçerik Alanı */
+        .content-section { flex: 2; min-width: 350px; }
+        .tag { color: var(--primary-red); font-weight: bold; font-size: 14px; margin-bottom: 10px; display: block; }
+        h1 { font-size: 32px; margin-bottom: 20px; line-height: 1.2; }
+        .petition-box { background: white; padding: 30px; border-radius: 10px; border: 1px solid #ddd; line-height: 1.6; font-size: 16px; }
+
+        /* Sağ Form ve Sayaç Alanı */
+        .sidebar { flex: 1; min-width: 320px; }
+        .card { background: white; border-radius: 15px; border-top: 5px solid var(--primary-red); padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        
+        /* Sayaç ve Progress Bar */
+        .counter-box { text-align: center; margin-bottom: 20px; }
+        .counter-number { font-size: 36px; font-weight: bold; color: var(--primary-red); }
+        .progress-container { background: #eee; border-radius: 10px; height: 10px; margin: 15px 0; overflow: hidden; }
+        .progress-bar { background: var(--primary-red); height: 100%; width: 0%; transition: width 0.5s; }
+        .goal-text { font-size: 12px; color: #777; display: flex; justify-content: space-between; }
+
+        /* Form Elemanları */
+        h2 { font-size: 22px; margin: 20px 0 10px 0; }
+        .form-desc { font-size: 13px; color: #666; margin-bottom: 20px; }
+        input[type="text"], input[type="email"] { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        .kvkk { font-size: 12px; display: flex; align-items: flex-start; gap: 8px; margin-bottom: 20px; }
+        
+        .submit-btn { background: var(--primary-red); color: white; border: none; width: 100%; padding: 15px; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.3s; }
+        .submit-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        .footer-note { font-size: 11px; text-align: center; color: #888; margin-top: 15px; }
+
+        @media (max-width: 768px) { .main-container { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="content-section">
+        <span class="tag">#AkranNezaketiİmzala</span>
+        <h1>Okullarda Minecraft ile <br>Akran Nezaketi Modülü Talebi</h1>
+        
+        <div class="petition-box">
+            Sayın Yetkili,<br><br>
+            "Akran Zorbalığı Değil, Akran Nezaketi!" sloganıyla yola çıktığımız bu girişimle, MEB müfredatındaki Bilişim Teknolojileri derslerine yenilikçi bir modül eklenmesini talep ediyoruz. İlkokul, ortaokul ve lise seviyelerindeki öğrencilerin akran zorbalığına karşı farkındalık kazanması amacıyla, Minecraft platformu üzerinden eğitim odaklı bir harita geliştirilmesini ve ders modülü olarak sunulmasını bekliyoruz.<br><br>
+            Bu eğitim haritası kapsamında öğrenciler; 'Akran Nezaketi Adası' ile empatiyi, 'Zorbalığın Negatif Etkileri Ormanı' ile farkındalığı ve 'Zorbalığa Karşı Önlem Kalesi' ile çözüm yollarını oyunlaştırılmış bir deneyimle öğreneceklerdir. Gelecek nesillerin dijital dünyayı değerler eğitimiyle birleştirmesi adına bu projenin desteklenmesini arz ederim.<br><br>
+            Saygılarımla
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="card">
+            <div class="counter-box">
+                <div class="counter-number" id="countDisplay">0</div>
+                <div style="font-size: 14px;">kişi imzaladı! Hedef: 10.000</div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <div class="goal-text">
+                    <span id="percentText">%0 Tamamlandı</span>
+                    <span>10k</span>
+                </div>
+            </div>
+
+            <h2>İmzala & CİMER'e Gönder</h2>
+            <p class="form-desc">İmzanız platforma kaydedilecek, ardından CİMER sayfası <b>yeni sekmede</b> açılacaktır.</p>
+
+            <input type="text" id="fname" placeholder="Adınız">
+            <input type="text" id="lname" placeholder="Soyadınız">
+            <input type="email" id="email" placeholder="E-posta">
+
+            <label class="kvkk">
+                <input type="checkbox" id="kvkkCheck"> 
+                <span><a href="#" style="color: var(--primary-red);">KVKK Metni</a>'ni okudum ve onaylıyorum.</span>
+            </label>
+
+            <button class="submit-btn" onclick="signAction()">İMZALA VE CİMER'E GİT</button>
+            
+            <div class="footer-note">
+                🔒 Verileriniz 6698 Sayılı KVKK kapsamında korunur.
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const goal = 10000;
+    let count = parseInt(localStorage.getItem('petitionCount')) || 0;
+
+    // Sayfayı ilk açılışta güncelle
+    updateUI();
+
+    function updateUI() {
+        document.getElementById('countDisplay').innerText = count.toLocaleString('tr-TR');
+        const percent = (count / goal) * 100;
+        document.getElementById('progressBar').style.width = percent + "%";
+        document.getElementById('percentText').innerText = "%" + Math.floor(percent) + " Tamamlandı";
+    }
+
+    function signAction() {
+        const ad = document.getElementById('fname').value;
+        const soyad = document.getElementById('lname').value;
+        const kvkk = document.getElementById('kvkkCheck').checked;
+
+        if(!ad || !soyad || !kvkk) {
+            alert("Lütfen tüm alanları doldurun ve KVKK onayını işaretleyin.");
+            return;
+        }
+
+        // Sayaç artırma
+        count++;
+        localStorage.setItem('petitionCount', count);
+        updateUI();
+
+        // Dilekçe Metni Hazırlama
+        const metin = `Sayın Yetkili,\n\n"Akran Zorbalığı Değil, Akran Nezaketi!" sloganıyla yola çıktığımız bu girişimle, MEB müfredatındaki Bilişim Teknolojileri derslerine yenilikçi bir modül eklenmesini talep ediyoruz. İlkokul, ortaokul ve lise seviyelerindeki öğrencilerin akran zorbalığına karşı farkındalık kazanması amacıyla, Minecraft platformu üzerinden eğitim odaklı bir harita geliştirilmesini ve ders modülü olarak sunulmasını bekliyoruz.\n\nBu eğitim haritası kapsamında öğrenciler; 'Akran Nezaketi Adası' ile empatiyi, 'Zorbalığın Negatif Etkileri Ormanı' ile farkındalığı ve 'Zorbalığa Karşı Önlem Kalesi' ile çözüm yollarını oyunlaştırılmış bir deneyimle öğreneceklerdir. Gelecek nesillerin dijital dünyayı değerler eğitimiyle birleştirmesi adına bu projenin desteklenmesini arz ederim.\n\nSaygılarımla`;
+
+        // Kopyalama ve Yönlendirme
+        navigator.clipboard.writeText(metin).then(() => {
+            alert("Dilekçeniz panoya kopyalandı! CİMER açılıyor...");
+            window.open("https://www.cimer.gov.tr/", "_blank");
+        });
+    }
+</script>
+
+</body>
+</html>
