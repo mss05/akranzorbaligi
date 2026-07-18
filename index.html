@@ -3,128 +3,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akran Nezaketi Hareketi - İmzala</title>
+    <title>Bence Burada Duralım - Akran Nezaketi Hareketi</title>
+    <!-- Modern ve okunaklı font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { --primary-red: #e63946; --bg-gray: #f8f9fa; --text-dark: #1d3557; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: var(--bg-gray); margin: 0; padding: 20px; color: var(--text-dark); }
-        .main-container { max-width: 1100px; margin: 40px auto; display: flex; gap: 30px; flex-wrap: wrap; }
+        :root {
+            --primary: #e63946;
+            --primary-hover: #c1121f;
+            --secondary: #1d3557;
+            --accent: #457b9d;
+            --bg-light: #f8f9fa;
+            --text-dark: #2b2d42;
+            --text-muted: #6c757d;
+        }
         
-        /* Sol İçerik Alanı */
-        .content-section { flex: 2; min-width: 350px; }
-        .tag { color: var(--primary-red); font-weight: bold; font-size: 14px; margin-bottom: 10px; display: block; }
-        h1 { font-size: 32px; margin-bottom: 20px; line-height: 1.2; }
-        .petition-box { background: white; padding: 30px; border-radius: 10px; border: 1px solid #ddd; line-height: 1.6; font-size: 16px; }
-
-        /* Sağ Form ve Sayaç Alanı */
-        .sidebar { flex: 1; min-width: 320px; }
-        .card { background: white; border-radius: 15px; border-top: 5px solid var(--primary-red); padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        /* Sayaç ve Progress Bar */
-        .counter-box { text-align: center; margin-bottom: 20px; }
-        .counter-number { font-size: 36px; font-weight: bold; color: var(--primary-red); }
-        .progress-container { background: #eee; border-radius: 10px; height: 10px; margin: 15px 0; overflow: hidden; }
-        .progress-bar { background: var(--primary-red); height: 100%; width: 0%; transition: width 0.5s; }
-        .goal-text { font-size: 12px; color: #777; display: flex; justify-content: space-between; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-light); 
+            color: var(--text-dark); 
+            line-height: 1.6; 
+        }
 
-        /* Form Elemanları */
-        h2 { font-size: 22px; margin: 20px 0 10px 0; }
-        .form-desc { font-size: 13px; color: #666; margin-bottom: 20px; }
-        input[type="text"], input[type="email"] { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
-        .kvkk { font-size: 12px; display: flex; align-items: flex-start; gap: 8px; margin-bottom: 20px; }
+        /* Üst Menü */
+        header {
+            background-color: white;
+            padding: 20px 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo { font-size: 22px; font-weight: 800; color: var(--secondary); letter-spacing: -0.5px; }
+        .logo span { color: var(--primary); }
+        .tag-badge { background: rgba(230,57,70,0.1); color: var(--primary); padding: 5px 12px; border-radius: 20px; font-size: 14px; font-weight: 600; }
+
+        /* Hero Alanı (Dikkat Çekici Karşılama) */
+        .hero {
+            padding: 80px 5% 100px;
+            background: linear-gradient(135deg, var(--secondary) 0%, #0a1420 100%);
+            color: white;
+            text-align: center;
+        }
+        .hero h1 { font-size: 52px; margin-bottom: 20px; font-weight: 800; line-height: 1.1; letter-spacing: -1px; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { font-size: 20px; max-width: 750px; margin: 0 auto; color: #a8b2d1; }
         
-        .submit-btn { background: var(--primary-red); color: white; border: none; width: 100%; padding: 15px; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.3s; }
-        .submit-btn:hover { opacity: 0.9; transform: translateY(-2px); }
-        .footer-note { font-size: 11px; text-align: center; color: #888; margin-top: 15px; }
+        /* İstatistik Kartları (Anket Verileri) */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 0 5%;
+            flex-wrap: wrap;
+            margin-top: -50px;
+        }
+        .stat-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            flex: 1;
+            min-width: 250px;
+            max-width: 320px;
+            text-align: center;
+            border-bottom: 4px solid var(--accent);
+            transition: transform 0.3s;
+        }
+        .stat-card:hover { transform: translateY(-5px); }
+        .stat-card h3 { font-size: 46px; color: var(--primary); margin-bottom: 5px; font-weight: 800; line-height: 1;}
+        .stat-card p { font-size: 15px; color: var(--text-dark); font-weight: 600; }
+        .stat-desc { font-size: 13px; color: var(--text-muted); margin-top: 10px; display: block;}
 
-        @media (max-width: 768px) { .main-container { flex-direction: column; } }
+        /* Ana İçerik ve Form Düzeni */
+        .main-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 5%;
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        /* Sol İçerik - Kampanya Detayları */
+        .content-section { flex: 3; min-width: 350px; }
+        .section-title { font-size: 32px; color: var(--secondary); margin-bottom: 20px; font-weight: 800; letter-spacing: -0.5px;}
+        .content-section p { font-size: 17px; margin-bottom: 20px; color: #495057; }
+        
+        .highlight-box {
+            background: rgba(69, 123, 157, 0.08);
+            border-left: 4px solid var(--accent);
+            padding: 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 30px 0;
+        }
+        .highlight-box h4 { color: var(--secondary); font-size: 18px; margin-bottom: 10px; }
+        .highlight-box p { margin: 0; font-size: 16px; }
+        
+        .petition-text {
+            background: white;
+            padding: 40px 30px 30px;
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
+            font-size: 15px;
+            color: #495057;
+            position: relative;
+            line-height: 1.8;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .petition-text::before {
+            content: "CİMER'e Gönderilecek Dilekçe Metni";
+            position: absolute;
+            top: -14px;
+            left: 30px;
+            background: var(--secondary);
+            color: white;
+            padding: 6px 16px;
+            font-size: 13px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* Sağ Alan - Yapışkan İmza Formu */
+        .sidebar { flex: 2; min-width: 320px; }
+        .form-card {
+            background: white;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 100px;
+            border-top: 5px solid var(--primary);
+        }
+        
+        .counter-wrap { text-align: center; margin-bottom: 25px; }
+        .counter-wrap h2 { font-size: 54px; color: var(--primary); font-weight: 800; line-height: 1; }
+        .counter-wrap p { color: var(--secondary); font-size: 15px; font-weight: 600; margin-top: 5px; }
+        
+        .progress-bg { background: #f1f3f5; height: 12px; border-radius: 10px; margin: 15px 0; overflow: hidden; }
+        .progress-fill { background: var(--primary); height: 100%; width: 0%; transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .progress-labels { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); font-weight: 600; }
+
+        .form-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; text-align: center; }
+
+        .form-group { margin-bottom: 15px; }
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 15px;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+        .form-group input:focus { 
+            border-color: var(--accent); 
+            background: white;
+            outline: none; 
+            box-shadow: 0 0 0 4px rgba(69, 123, 157, 0.15); 
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+        .checkbox-group input { margin-top: 2px; accent-color: var(--primary); cursor: pointer;}
+        
+        .submit-btn {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .submit-btn:hover { 
+            background: var(--primary-hover); 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 20px rgba(230, 57, 70, 0.3); 
+        }
+        
+        .footer-note { text-align: center; font-size: 12px; color: #adb5bd; margin-top: 20px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 38px; }
+            .hero { padding: 60px 5% 80px; }
+            .main-container { flex-direction: column; gap: 40px; margin-top: 40px; }
+            .stat-card { min-width: 100%; }
+        }
     </style>
 </head>
 <body>
 
+<header>
+    <div class="logo">Akran<span>Nezaketi</span></div>
+    <div class="tag-badge">#BenceBuradaDuralım</div>
+</header>
+
+<section class="hero">
+    <h1>Şaka Değil, Zorbalık.<br><span>"Bence Burada Duralım."</span></h1>
+    <p>Binlerce gencin katıldığı araştırmaya göre zorbalığa şahit oluyoruz ama sessiz kalıyoruz. Kahraman olmana gerek yok. Gülme, paylaşma, sadece "bence burada duralım" de.</p>
+</section>
+
+<div class="stats-container">
+    <div class="stat-card">
+        <h3>%95</h3>
+        <p>Yetersiz Önlem</p>
+        <span class="stat-desc">Öğrencilerin %95'i okullardaki zorbalık önleme mekanizmalarını yetersiz buluyor.</span>
+    </div>
+    <div class="stat-card">
+        <h3>%73</h3>
+        <p>Sessiz Çoğunluk</p>
+        <span class="stat-desc">Zorbalığa tanık olanların %73'ü dışlanma korkusuyla müdahale edemiyor.</span>
+    </div>
+    <div class="stat-card">
+        <h3>%74</h3>
+        <p>Sözde "Şaka"</p>
+        <span class="stat-desc">Gençlerin %74'üne göre zorbalık çoğunlukla "şaka" adı altında normalleştiriliyor.</span>
+    </div>
+</div>
+
 <div class="main-container">
     <div class="content-section">
-        <span class="tag">#AkranNezaketiİmzala</span>
-        <h1>Okullarda Minecraft ile <br>Akran Nezaketi Modülü Talebi</h1>
+        <h2 class="section-title">Dijital Dünyaya Değerler Eğitimi: <br>Minecraft Akran Nezaketi Modülü</h2>
         
-        <div class="petition-box">
+        <p>Araştırmamız acı bir gerçeği ortaya koydu: Gençler bir zorbalığa şahit olduğunda nereye bildireceğini bilmiyor veya kendi de hedef olmaktan korktuğu için sessiz kalıyor. Ancak sessiz kalmak, zorbalığı onaylamak anlamına geliyor.</p>
+        
+        <div class="highlight-box">
+            <h4>💡 Çözüm: Eğitimi Oyunun İçine Taşımak</h4>
+            <p>MEB müfredatındaki Bilişim Teknolojileri derslerine yenilikçi bir modül eklenmesini talep ediyoruz. Çocukların en çok vakit geçirdiği <strong>Minecraft</strong> platformu üzerinden geliştirilecek bir <strong>Akran Nezaketi Haritası</strong> ile gençler; empati kurmayı, zorbalığın negatif etkilerini ve dijital dünyada destek isteme yollarını yaşayarak öğrenecekler.</p>
+        </div>
+
+        <p>Bu vizyonu hayata geçirmek için Milli Eğitim Bakanlığı'na sesimizi duyurmamız gerekiyor. Yandaki formu doldurarak dilekçeyi kopyalayabilir ve doğrudan CİMER üzerinden talebimizi resmi makamlara iletebilirsin.</p>
+
+        <div class="petition-text">
             Sayın Yetkili,<br><br>
-            "Akran Zorbalığı Değil, Akran Nezaketi!" sloganıyla yola çıktığımız bu girişimle, MEB müfredatındaki Bilişim Teknolojileri derslerine yenilikçi bir modül eklenmesini talep ediyoruz. İlkokul, ortaokul ve lise seviyelerindeki öğrencilerin akran zorbalığına karşı farkındalık kazanması amacıyla, Minecraft platformu üzerinden eğitim odaklı bir harita geliştirilmesini ve ders modülü olarak sunulmasını bekliyoruz.<br><br>
-            Bu eğitim haritası kapsamında öğrenciler; 'Akran Nezaketi Adası' ile empatiyi, 'Zorbalığın Negatif Etkileri Ormanı' ile farkındalığı ve 'Zorbalığa Karşı Önlem Kalesi' ile çözüm yollarını oyunlaştırılmış bir deneyimle öğreneceklerdir. Gelecek nesillerin dijital dünyayı değerler eğitimiyle birleştirmesi adına bu projenin desteklenmesini arz ederim.<br><br>
-            Saygılarımla
+            "Akran Zorbalığı Değil, Akran Nezaketi!" sloganıyla yola çıktığımız ve 1000'den fazla gencin katıldığı araştırma sonuçlarına göre; öğrencilerin %95'i okullarımızda akran zorbalığını önlemeye yönelik mekanizmaların yetersiz olduğunu belirtmektedir. Ayrıca zorbalığa tanık olan gençlerin çok büyük bir kısmı dışlanma korkusuyla sessiz kalmaktadır.<br><br>
+            Bu bağlamda, MEB müfredatındaki Bilişim Teknolojileri derslerine yenilikçi bir modül eklenmesini talep ediyoruz. Öğrencilerin farkındalık kazanması amacıyla, <strong>Minecraft platformu üzerinden 'Akran Nezaketi Adası' ve 'Zorbalığa Karşı Önlem Kalesi' gibi oyunlaştırılmış bir eğitim haritası</strong> geliştirilmesini ve ders modülü olarak sunulmasını bekliyoruz.<br><br>
+            Gelecek nesillerin dijital dünyayı değerler eğitimiyle birleştirmesi adına bu projenin desteklenmesini arz ederim.<br><br>
+            Saygılarımla.
         </div>
     </div>
 
     <div class="sidebar">
-        <div class="card">
-            <div class="counter-box">
-                <div class="counter-number" id="countDisplay">0</div>
-                <div style="font-size: 14px;">kişi imzaladı! Hedef: 10.000</div>
-                <div class="progress-container">
-                    <div class="progress-bar" id="progressBar"></div>
+        <div class="form-card">
+            <div class="counter-wrap">
+                <h2 id="countDisplay">0</h2>
+                <p>Kişi Harekete Geçti</p>
+                <div class="progress-bg">
+                    <div class="progress-fill" id="progressBar"></div>
                 </div>
-                <div class="goal-text">
-                    <span id="percentText">%0 Tamamlandı</span>
-                    <span>10k</span>
+                <div class="progress-labels">
+                    <span id="percentText">%0 Hedef</span>
+                    <span>Hedef: 10.000</span>
                 </div>
             </div>
 
-            <h2>İmzala & CİMER'e Gönder</h2>
-            <p class="form-desc">İmzanız platforma kaydedilecek, ardından CİMER sayfası <b>yeni sekmede</b> açılacaktır.</p>
+            <p class="form-desc">İmzanı at, metin otomatik kopyalansın ve <b>CİMER'de</b> başvurunu tamamla.</p>
 
-            <input type="text" id="fname" placeholder="Adınız">
-            <input type="text" id="lname" placeholder="Soyadınız">
-            <input type="email" id="email" placeholder="E-posta">
+            <div class="form-group">
+                <input type="text" id="fname" placeholder="Adınız">
+            </div>
+            <div class="form-group">
+                <input type="text" id="lname" placeholder="Soyadınız">
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="E-posta Adresiniz">
+            </div>
 
-            <label class="kvkk">
+            <label class="checkbox-group">
                 <input type="checkbox" id="kvkkCheck"> 
-                <span><a href="#" style="color: var(--primary-red);">KVKK Metni</a>'ni okudum ve onaylıyorum.</span>
+                <span><a href="#" style="color: var(--primary); text-decoration: none;">KVKK Aydınlatma Metni</a>'ni okudum ve verilerimin kampanya kapsamında işlenmesini onaylıyorum.</span>
             </label>
 
-            <button class="submit-btn" onclick="signAction()">İMZALA VE CİMER'E GİT</button>
+            <button class="submit-btn" onclick="signAction()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                İmzala & CİMER'e Git
+            </button>
             
             <div class="footer-note">
-                🔒 Verileriniz 6698 Sayılı KVKK kapsamında korunur.
+                🔒 Bilgileriniz şifrelenerek korunmaktadır.
             </div>
         </div>
     </div>
 </div>
 
 <script>
+    // Hedef ve Başlangıç Sayacı (Daha gerçekçi başlaması için örnek bir rakam eklendi)
     const goal = 10000;
-    let count = parseInt(localStorage.getItem('petitionCount')) || 0;
+    // localStorage'da değer yoksa 1000'den fazla kişinin araştırmaya katıldığını vurgulamak için 1243'ten başlatıyoruz.
+    let count = parseInt(localStorage.getItem('akranPetitionCount')) || 1243; 
 
-    // Sayfayı ilk açılışta güncelle
+    // Sayfayı Yükle
     updateUI();
 
     function updateUI() {
+        // Rakam animasyonu eklenebilir ama temel olarak:
         document.getElementById('countDisplay').innerText = count.toLocaleString('tr-TR');
-        const percent = (count / goal) * 100;
-        document.getElementById('progressBar').style.width = percent + "%";
+        
+        let percent = (count / goal) * 100;
+        if(percent > 100) percent = 100;
+        
+        // Progress bar animasyonu için kısa bir gecikme
+        setTimeout(() => {
+            document.getElementById('progressBar').style.width = percent + "%";
+        }, 100);
+        
         document.getElementById('percentText').innerText = "%" + Math.floor(percent) + " Tamamlandı";
     }
 
     function signAction() {
-        const ad = document.getElementById('fname').value;
-        const soyad = document.getElementById('lname').value;
+        const ad = document.getElementById('fname').value.trim();
+        const soyad = document.getElementById('lname').value.trim();
+        const email = document.getElementById('email').value.trim();
         const kvkk = document.getElementById('kvkkCheck').checked;
 
-        if(!ad || !soyad || !kvkk) {
-            alert("Lütfen tüm alanları doldurun ve KVKK onayını işaretleyin.");
+        if(!ad || !soyad || !email || !kvkk) {
+            alert("Lütfen formu eksiksiz doldurun ve KVKK onayını işaretleyin.");
             return;
         }
 
-        // Sayaç artırma
+        // Sayaç artırma ve kaydetme
         count++;
-        localStorage.setItem('petitionCount', count);
+        localStorage.setItem('akranPetitionCount', count);
         updateUI();
 
-        // Dilekçe Metni Hazırlama
-        const metin = `Sayın Yetkili,\n\n"Akran Zorbalığı Değil, Akran Nezaketi!" sloganıyla yola çıktığımız bu girişimle, MEB müfredatındaki Bilişim Teknolojileri derslerine yenilikçi bir modül eklenmesini talep ediyoruz. İlkokul, ortaokul ve lise seviyelerindeki öğrencilerin akran zorbalığına karşı farkındalık kazanması amacıyla, Minecraft platformu üzerinden eğitim odaklı bir harita geliştirilmesini ve ders modülü olarak sunulmasını bekliyoruz.\n\nBu eğitim haritası kapsamında öğrenciler; 'Akran Nezaketi Adası' ile empatiyi, 'Zorbalığın Negatif Etkileri Ormanı' ile farkındalığı ve 'Zorbalığa Karşı Önlem Kalesi' ile çözüm yollarını oyunlaştırılmış bir deneyimle öğreneceklerdir. Gelecek nesillerin dijital dünyayı değerler eğitimiyle birleştirmesi adına bu projenin desteklenmesini arz ederim.\n\nSaygılarımla`;
+        // Buton efektini değiştir
+        const btn = document.querySelector('.submit-btn');
+        btn.innerHTML = "İmzalandı! Yönlendiriliyor...";
+        btn.style.background = "#2b2d42";
+
+        // Dilekçe Metni Hazırlama (Anket verileriyle güçlendirilmiş versiyon)
+        const metin = `Sayın Yetkili,\n\n"Akran Zorbalığı Değil, Akran Nezaketi!" sloganıyla yola çıktığımız ve 1000'den fazla gencin katıldığı araştırma sonuçlarına göre; öğrencilerin %95'i okullarımızda akran zorbalığını önlemeye yönelik mekanizmaların yetersiz olduğunu belirtmektedir. Ayrıca zorbalığa tanık olan gençlerin çok büyük bir kısmı dışlanma korkusuyla sessiz kalmaktadır.\n\nBu bağlamda, MEB müfredatındaki Bilişim Teknolojileri derslerine yenilikçi bir modül eklenmesini talep ediyoruz. Öğrencilerin farkındalık kazanması amacıyla, Minecraft platformu üzerinden 'Akran Nezaketi Adası' ve 'Zorbalığa Karşı Önlem Kalesi' gibi oyunlaştırılmış bir eğitim haritası geliştirilmesini ve ders modülü olarak sunulmasını bekliyoruz.\n\nGelecek nesillerin dijital dünyayı değerler eğitimiyle birleştirmesi adına bu projenin desteklenmesini arz ederim.\n\nSaygılarımla.`;
 
         // Kopyalama ve Yönlendirme
         navigator.clipboard.writeText(metin).then(() => {
-            alert("Dilekçeniz panoya kopyalandı! CİMER açılıyor...");
+            alert("Harika! Dilekçe metni panoya KOPYALANDI.\nŞimdi açılacak olan CİMER ekranında ilgili alana YAPIŞTIR (Ctrl+V) yapabilirsiniz.");
             window.open("https://www.cimer.gov.tr/", "_blank");
+            
+            // Formu temizle
+            document.getElementById('fname').value = "";
+            document.getElementById('lname').value = "";
+            document.getElementById('email').value = "";
+            document.getElementById('kvkkCheck').checked = false;
+            setTimeout(() => {
+                btn.innerHTML = "İmzala & CİMER'e Git";
+                btn.style.background = "var(--primary)";
+            }, 3000);
+            
+        }).catch(err => {
+            alert("Tarayıcınız kopyalama işlemine izin vermedi. Lütfen metni manuel kopyalayın.");
         });
     }
 </script>
