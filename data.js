@@ -1,9 +1,9 @@
-window.DAHA_HAVALI_DATA = {
+window.KIRMIZI_CIZGI_DATA = {
   cimerUrl: "https://www.cimer.gov.tr/",
 
   guide: {
-    title: "Daha HAVA’lı Akran Zorbalığı Kılavuzu",
-    filename: "daha-havali-akran-zorbaligi-kilavuzu.html",
+    title: "Kırmızı Çizgini Çek Akran Zorbalığı Kılavuzu",
+    filename: "kirmizi-cizgini-cek-akran-zorbaligi-kilavuzu.html",
     sections: [
       {
         title: "1. Zorbalık Nedir?",
@@ -101,30 +101,6 @@ window.DAHA_HAVALI_DATA = {
           "Zorbalık yapan, maruz kalan ve tanık olan öğrenciler ayrı ayrı ele alınmalı.",
           "Aile iletişimi suçlayıcı değil çözüm odaklı yürütülmeli."
         ]
-      },
-      {
-        title: "9. Rehberlik Servisine Bildirim Şablonu",
-        body:
-          "Bir öğrenci veya tanık aşağıdaki kısa formatla olayı okul içinde bildirebilir.",
-        items: [
-          "Olay nerede yaşandı?",
-          "Ne zaman yaşandı?",
-          "Kim veya kimler vardı?",
-          "Ne söylendi veya ne yapıldı?",
-          "Bu davranış daha önce tekrarlandı mı?",
-          "Kendini güvende hissediyor musun?"
-        ]
-      },
-      {
-        title: "10. CİMER Başvuru Metni Taslağı",
-        body:
-          "Aşağıdaki metin, okullarda akran zorbalığı farkındalık modüllerinin güçlendirilmesi için örnek başvuru metni olarak kullanılabilir.",
-        items: [
-          "Okullarda akran zorbalığı farkındalık eğitimlerinin artırılması",
-          "Rehberlik servislerinin bildirim mekanizmalarının görünür hale getirilmesi",
-          "Tanık öğrenciler için güvenli bildirim kanalları oluşturulması",
-          "Öğrenci, öğretmen ve ebeveynlere yönelik uygulanabilir kılavuzların yaygınlaştırılması"
-        ]
       }
     ]
   },
@@ -138,20 +114,53 @@ Gençler arasında “şaka” adı altında normalleştirilen dışlama, alay, 
 
 Bu nedenle okullarda öğrenciler, öğretmenler ve ebeveynler için uygulanabilir bir akran zorbalığı farkındalık modülü hazırlanmasını; rehberlik servislerinin bildirim mekanizmalarının daha görünür hale getirilmesini ve öğrencilerin güvenli şekilde destek alabileceği kanalların güçlendirilmesini talep ediyorum.
 
-“Bence burada duralım” gibi kısa, barışçıl ve uygulanabilir müdahale cümlelerinin öğrencilere öğretilmesi, sessiz tanıkların zorbalığı besleyen pasif konumdan çıkmasına katkı sağlayacaktır.
+“Bence burada duralım” gibi kısa, barışçıl ve uygulanabilir müdahale cümlelerinin öğrencilere öğretilmesi; gençlerin “şaka” adı altında normalleştirilen davranışlara kırmızı çizgi çekmesini sağlayacaktır.
 
 Okullarda akran zorbalığına karşı önleyici, kapsayıcı ve sürdürülebilir çalışmaların yaygınlaştırılması için gereğinin yapılmasını arz ederim.`,
+
+  excuses: [
+    {
+      title: "Alt tarafı şaka.",
+      answer:
+        "Bu cümle davranışın etkisini küçültür. Oysa şaka, herkes güvende hissettiğinde şakadır. Bir kişi utanıyor, susuyor veya geri çekiliyorsa kırmızı çizgi aşılmıştır."
+    },
+    {
+      title: "Çok alıngansın.",
+      answer:
+        "Bu cümle davranışı değil, rahatsız olan kişiyi suçlar. Birinin sınırını söylemesi alınganlık değil, kendini koruma hakkıdır."
+    },
+    {
+      title: "Herkes gülüyor.",
+      answer:
+        "Kalabalığın gülmesi davranışı doğru yapmaz. Bazen kalabalık, zorbalığı daha görünmez ve daha güçlü hale getirir."
+    },
+    {
+      title: "Biz hep böyleyiz.",
+      answer:
+        "Bir davranışın alışkanlık olması onu zararsız yapmaz. Aynı davranış birini sürekli hedef alıyorsa zorbalığa dönüşebilir."
+    },
+    {
+      title: "Ben bir şey yapmadım ki.",
+      answer:
+        "Sessizce izlemek, gülmek veya paylaşmak zorbalığın devam etmesine alan açabilir. Tanık olmak da sorumluluk getirir."
+    },
+    {
+      title: "Kendi de güldü.",
+      answer:
+        "İnsanlar bazen ortam bozulmasın veya daha çok hedef olmasın diye gülebilir. Gerçek ölçü, kişinin kendini güvende hissedip hissetmediğidir."
+    }
+  ],
 
   bulletins: [
     {
       id: "bulten-1",
-      title: "Daha HAVA’lı Hareketi Gençleri Zorbalığa Karşı Sessiz Kalmamaya Çağırıyor",
+      title: "Kırmızı Çizgini Çek Hareketi Gençleri Zorbalığa Karşı Sessiz Kalmamaya Çağırıyor",
       date: "12 Eylül 2026",
       kicker: "Basın Bülteni",
       excerpt:
-        "Daha HAVA’lı hareketi, gençler arasında şaka adı altında normalleştirilen akran zorbalığına dikkat çekiyor.",
+        "Kırmızı Çizgini Çek hareketi, gençler arasında şaka adı altında normalleştirilen akran zorbalığına dikkat çekiyor.",
       body: [
-        "Daha HAVA’lı hareketi, akran zorbalığının yalnızca zorba ve mağdur arasında yaşanan bireysel bir sorun olmadığını, çevredeki sessiz tanıkların davranışıyla büyüyen sosyal bir dinamik olduğunu vurguluyor.",
+        "Kırmızı Çizgini Çek hareketi, akran zorbalığının yalnızca zorba ve mağdur arasında yaşanan bireysel bir sorun olmadığını, çevredeki sessiz tanıkların davranışıyla büyüyen sosyal bir dinamik olduğunu vurguluyor.",
         "Kampanya, gençlerin gündelik hayatta sıkça karşılaştığı dışlama, lakap takma, izinsiz görüntü paylaşma ve dijital alay gibi davranışları görünür kılmayı amaçlıyor.",
         "Hareketin temel mesajı “Gülme, Geçme” ifadesiyle özetleniyor. Bu mesaj, tanık olan gençlere kahraman olmadan da müdahale edebileceklerini hatırlatıyor.",
         "Kampanya kapsamında hazırlanan interaktif test, gençlerin şaka ile zorbalık arasındaki sınırı sorgulamasını sağlıyor. Her senaryoda kullanıcıya davranışın neden zorbalık olduğu açıklanıyor ve kullanabileceği kısa müdahale cümleleri sunuluyor."
@@ -167,7 +176,7 @@ Okullarda akran zorbalığına karşı önleyici, kapsayıcı ve sürdürülebil
       excerpt:
         "Yeni test merkezi, gündelik okul ve sosyal medya senaryoları üzerinden gençlere zorbalığın sınırlarını gösteriyor.",
       body: [
-        "Daha HAVA’lı kampanyasının dijital test merkezi yayına alındı. Test, gençlerin okul, arkadaş grubu ve sosyal medya ortamlarında karşılaşabileceği davranışları oyunlaştırılmış senaryolarla ele alıyor.",
+        "Kırmızı Çizgini Çek kampanyasının dijital test merkezi yayına alındı. Test, gençlerin okul, arkadaş grubu ve sosyal medya ortamlarında karşılaşabileceği davranışları oyunlaştırılmış senaryolarla ele alıyor.",
         "Kullanıcılar her senaryoda davranışın şaka mı yoksa zorbalık mı olduğuna karar veriyor. Testin sonunda farkındalık puanı, seviye ve rozet sistemi ile kullanıcıya kişisel bir sonuç kartı sunuluyor.",
         "Testin amacı kullanıcıyı suçlamak değil, normalleşmiş davranışların arkasındaki zorbalık dinamiğini görünür kılmak. Bu nedenle yanlış seçimlerde de açıklayıcı ve öğretici bir geri bildirim veriliyor.",
         "Her soruda “O anda ne diyebilirsin?” alanı bulunuyor. Bu alan, tanık gençlere kısa, güvenli ve uygulanabilir müdahale cümleleri kazandırıyor."
@@ -183,7 +192,7 @@ Okullarda akran zorbalığına karşı önleyici, kapsayıcı ve sürdürülebil
       excerpt:
         "Kampanya, öğrenciler, ebeveynler ve okullar için uygulanabilir bir akran zorbalığı kılavuzu sunuyor.",
       body: [
-        "Daha HAVA’lı hareketi, akran zorbalığına karşı yalnızca farkındalık yaratmanın yeterli olmadığını; öğrenciler, ebeveynler ve eğitim kurumları için uygulanabilir adımların netleşmesi gerektiğini savunuyor.",
+        "Kırmızı Çizgini Çek hareketi, akran zorbalığına karşı yalnızca farkındalık yaratmanın yeterli olmadığını; öğrenciler, ebeveynler ve eğitim kurumları için uygulanabilir adımların netleşmesi gerektiğini savunuyor.",
         "Bu kapsamda hazırlanan kılavuzda zorbalık türleri, tanıkların güvenli müdahale yolları, ebeveynler için uyarı işaretleri ve okullar için müdahale akışı yer alıyor.",
         "Kampanya sitesinde ayrıca kullanıcıların CİMER üzerinden kendi başvurularını yapabilmeleri için örnek bir metin sunuluyor. Kullanıcı metni kopyalayıp resmi başvuru kanalına yönlendiriliyor.",
         "Bu yaklaşım, dijital farkındalığı somut bir yurttaşlık aksiyonuna dönüştürmeyi hedefliyor."
@@ -197,17 +206,36 @@ Okullarda akran zorbalığına karşı önleyici, kapsayıcı ve sürdürülebil
     {
       title: "Instagram Story",
       text:
-        "Şaka herkesi güldürür. Zorbalık birini susturur. Ben zorbalığa gülüp geçmiyorum. #DahaHAVAli #GülmeGeçme"
+        "Şaka herkesi güldürür. Zorbalık birini susturur. Ben zorbalığa gülüp geçmiyorum. #KırmızıÇizginiÇek #GülmeGeçme"
     },
     {
       title: "X / Twitter",
       text:
-        "Bir davranış birini dışlıyor, küçültüyor veya susturuyorsa adı şaka değil zorbalıktır. Bence burada duralım. #DahaHAVAli"
+        "Bir davranış birini dışlıyor, küçültüyor veya susturuyorsa adı şaka değil zorbalıktır. Bence burada duralım. #KırmızıÇizginiÇek"
     },
     {
       title: "WhatsApp",
       text:
-        "Daha HAVA’lı testini çözdüm. Bazı şeyler şaka değil, zorbalık. Testi sen de çöz: Şaka mı zorbalık mı?"
+        "Kırmızı Çizgini Çek testini çözdüm. Bazı şeyler şaka değil, zorbalık. Sen de çizgini test et."
+    }
+  ],
+
+  tones: [
+    {
+      title: "Sakin ton",
+      text: "Bence burada duralım. Bu onu rahatsız etmiş olabilir."
+    },
+    {
+      title: "Arkadaşça ton",
+      text: "Tamam güldük ama uzatmayalım. Bence burada duralım."
+    },
+    {
+      title: "Net ton",
+      text: "Bu şaka değil. Devam etmeyelim."
+    },
+    {
+      title: "Destekleyici ton",
+      text: "Yalnız değilsin. İstersen birlikte birine söyleyelim."
     }
   ],
 
