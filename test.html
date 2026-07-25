@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Test Merkezi | Şaka mı Zorbalık mı?</title>
+  <meta name="description" content="Daha HAVA’lı Şaka mı Zorbalık mı testi." />
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="data.js" defer></script>
+  <script src="test.js" defer></script>
+</head>
+
+<body class="test-body">
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">✈</span>
+      <span>Daha HAVA’lı</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="index.html#kilavuz">Kılavuz</a>
+      <a href="index.html#cimer" class="nav-cta">CİMER Metni</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="test-hero">
+      <div>
+        <p class="eyebrow">Test merkezi</p>
+        <h1>Şaka mı,<br><span>Zorbalık mı?</span></h1>
+        <p>
+          Her senaryo “şaka” gibi sunulan ama aslında sınır ihlali barındıran bir durumu gösterir.
+          Seçimini yap, açıklamayı oku, güvenli müdahale cümleni öğren.
+        </p>
+      </div>
+
+      <div class="test-score-card">
+        <span>Puan</span>
+        <strong id="testScore">0</strong>
+        <small id="testLevel">Seyirci</small>
+      </div>
+    </section>
+
+    <section class="quiz-shell" id="quiz">
+      <aside class="quiz-side">
+        <div class="side-card">
+          <p>İlerleme</p>
+          <strong id="testCounter">1 / 16</strong>
+          <div class="progress large">
+            <span id="testProgress"></span>
+          </div>
+        </div>
+
+        <div class="side-card">
+          <p>Seri</p>
+          <strong id="testStreak">0</strong>
+          <small>Üst üste doğru cevaplar</small>
+        </div>
+
+        <div class="side-card">
+          <p>Rozetler</p>
+          <div class="badges" id="testBadges"></div>
+        </div>
+      </aside>
+
+      <article class="quiz-main">
+        <div class="quiz-top">
+          <span class="pill" id="quizCategory">Kategori</span>
+          <span id="questionNumber">Soru 1</span>
+        </div>
+
+        <h2 id="quizTitle">Yükleniyor...</h2>
+        <p id="quizScenario"></p>
+
+        <div class="quiz-options">
+          <button class="option-card" type="button" data-answer="joke">
+            <strong>Şaka</strong>
+            <span>Masum olabilir.</span>
+          </button>
+
+          <button class="option-card" type="button" data-answer="unsure">
+            <strong>Emin değilim</strong>
+            <span>Duruma göre değişebilir.</span>
+          </button>
+
+          <button class="option-card" type="button" data-answer="bullying">
+            <strong>Zorbalık</strong>
+            <span>Burada sınır aşılmış.</span>
+          </button>
+        </div>
+
+        <div class="feedback-panel" id="quizFeedback" hidden>
+          <div class="feedback-heading">
+            <span id="feedbackMark">!</span>
+            <strong id="feedbackTitle">Bu zorbalık.</strong>
+          </div>
+
+          <p id="feedbackExplanation"></p>
+
+          <div class="mini-info blue">
+            <small>Neden zorbalık?</small>
+            <p id="feedbackWhy"></p>
+          </div>
+
+          <div class="mini-info red">
+            <small>O anda ne diyebilirsin?</small>
+            <p id="feedbackAction"></p>
+          </div>
+
+          <button class="btn primary full" type="button" id="nextQuestionBtn">Sonraki soru</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="result-section" id="testResult" hidden>
+      <div class="result-card">
+        <p class="eyebrow">Test tamamlandı</p>
+        <h2 id="resultTitle">Daha HAVA’lı Rozeti</h2>
+        <p id="resultText"></p>
+
+        <ul class="result-list" id="resultList"></ul>
+
+        <div class="center-actions">
+          <button class="btn primary" type="button" id="downloadResultBtn">Sonuç Kartımı İndir</button>
+          <button class="btn secondary" type="button" id="downloadGuideFromTestBtn">Kılavuzu İndir</button>
+          <button class="btn ghost" type="button" id="restartTestBtn">Testi Yeniden Başlat</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Daha HAVA’lı Test Merkezi</span>
+    <a href="index.html">Ana sayfaya dön</a>
+  </footer>
+</body>
+</html>
