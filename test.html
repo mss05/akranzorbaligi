@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Test Merkezi | Şaka mı Zorbalık mı?</title>
-  <meta name="description" content="Daha HAVA’lı Şaka mı Zorbalık mı testi." />
+  <meta name="description" content="Kırmızı Çizgini Çek Şaka mı Zorbalık mı testi." />
 
   <link rel="stylesheet" href="style.css" />
   <script src="data.js" defer></script>
@@ -15,13 +15,14 @@
 <body class="test-body">
   <header class="site-header">
     <a class="brand" href="index.html">
-      <span class="brand-mark">✈</span>
-      <span>Daha HAVA’lı</span>
+      <span class="brand-mark">✎</span>
+      <span>Kırmızı Çizgini Çek</span>
     </a>
 
     <nav class="desktop-nav">
       <a href="index.html">Ana Sayfa</a>
       <a href="index.html#kilavuz">Kılavuz</a>
+      <a href="index.html#bulten">Bültenler</a>
       <a href="index.html#cimer" class="nav-cta">CİMER Metni</a>
     </nav>
   </header>
@@ -30,10 +31,15 @@
     <section class="test-hero">
       <div>
         <p class="eyebrow">Test merkezi</p>
-        <h1>Şaka mı,<br><span>Zorbalık mı?</span></h1>
+
+        <h1>
+          Şaka mı,<br>
+          <span>Zorbalık mı?</span>
+        </h1>
+
         <p>
           Her senaryo “şaka” gibi sunulan ama aslında sınır ihlali barındıran bir durumu gösterir.
-          Seçimini yap, açıklamayı oku, güvenli müdahale cümleni öğren.
+          Doğru yerde kırmızı çizgini çek, açıklamayı oku, güvenli müdahale cümleni öğren.
         </p>
       </div>
 
@@ -44,11 +50,23 @@
       </div>
     </section>
 
+    <section class="redline-section">
+      <div class="redline-label">
+        <span>Kırmızı çizgi ilerlemesi</span>
+        <strong id="redlineText">0%</strong>
+      </div>
+
+      <div class="redline">
+        <span id="redlineFill"></span>
+      </div>
+    </section>
+
     <section class="quiz-shell" id="quiz">
       <aside class="quiz-side">
         <div class="side-card">
           <p>İlerleme</p>
           <strong id="testCounter">1 / 16</strong>
+
           <div class="progress large">
             <span id="testProgress"></span>
           </div>
@@ -118,10 +136,16 @@
     <section class="result-section" id="testResult" hidden>
       <div class="result-card">
         <p class="eyebrow">Test tamamlandı</p>
-        <h2 id="resultTitle">Daha HAVA’lı Rozeti</h2>
+        <h2 id="resultTitle">Kırmızı Çizgi Rozeti</h2>
         <p id="resultText"></p>
 
         <ul class="result-list" id="resultList"></ul>
+
+        <div class="tone-box">
+          <h3>“Bence burada duralım” cümlesini hangi tonla kurarsın?</h3>
+
+          <div class="tone-grid" id="toneGrid"></div>
+        </div>
 
         <div class="center-actions">
           <button class="btn primary" type="button" id="downloadResultBtn">Sonuç Kartımı İndir</button>
@@ -133,7 +157,7 @@
   </main>
 
   <footer class="site-footer">
-    <span>Daha HAVA’lı Test Merkezi</span>
+    <span>Kırmızı Çizgini Çek Test Merkezi</span>
     <a href="index.html">Ana sayfaya dön</a>
   </footer>
 </body>
