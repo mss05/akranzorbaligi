@@ -1,4 +1,4 @@
-const data = window.DAHA_HAVALI_DATA;
+const data = window.KIRMIZI_CIZGI_DATA;
 const questions = data.quizQuestions;
 
 const levels = [
@@ -7,7 +7,7 @@ const levels = [
   { min: 6, name: "Şaka Maskesini Gören" },
   { min: 9, name: "Ses Çıkaran" },
   { min: 12, name: "Yanında Duran" },
-  { min: 16, name: "Daha HAVA’lı" }
+  { min: 16, name: "Kırmızı Çizgisini Çeken" }
 ];
 
 let currentIndex = 0;
@@ -89,7 +89,7 @@ function guideToHtmlDocument() {
   </style>
 </head>
 <body>
-  <p><strong>Daha HAVA’lı · Zorbalığa gülmek değil, yanında durmak.</strong></p>
+  <p><strong>Kırmızı Çizgini Çek · Gülme, geçme. Bence burada duralım.</strong></p>
   <h1>${escapeHtml(data.guide.title)}</h1>
   ${sections}
 </body>
@@ -112,7 +112,10 @@ function updateHud() {
   $("#testLevel").textContent = getCurrentLevel();
 
   const progress = Math.min(completed / questions.length, 1) * 100;
+
   $("#testProgress").style.width = `${progress}%`;
+  $("#redlineFill").style.width = `${progress}%`;
+  $("#redlineText").textContent = `${Math.round(progress)}%`;
   $("#testCounter").textContent = `${completed} / ${questions.length}`;
 
   const badgesTarget = $("#testBadges");
@@ -160,27 +163,33 @@ function answerQuestion(selected, button) {
   if (correct) {
     score += 100;
     streak += 1;
+
     $("#feedbackMark").textContent = "✓";
     $("#feedbackTitle").textContent = "Doğru: Bu ZORBALIK.";
     button.style.borderColor = "#b20d16";
     button.style.background = "rgba(178, 13, 22, 0.08)";
+
     addBadge("Maskeyi düşürdün");
     confetti(14);
   } else if (selected === "unsure") {
     score += 55;
     streak = 0;
+
     $("#feedbackMark").textContent = "!";
     $("#feedbackTitle").textContent = "Emin olmak önemli: Bu ZORBALIK.";
     button.style.borderColor = "#1d5d82";
     button.style.background = "rgba(29, 93, 130, 0.08)";
+
     addBadge("Sınırı sorguladın");
   } else {
     score += 25;
     streak = 0;
+
     $("#feedbackMark").textContent = "!";
     $("#feedbackTitle").textContent = "Şaka değil: Bu ZORBALIK.";
     button.style.borderColor = "#0a2a43";
     button.style.background = "rgba(10, 42, 67, 0.08)";
+
     addBadge("Şaka bahanesini yakaladın");
   }
 
@@ -189,7 +198,7 @@ function answerQuestion(selected, button) {
   if (completed >= 4) addBadge("Gülme Geçme");
   if (completed >= 8) addBadge("Sessiz Kalmayan");
   if (completed >= 12) addBadge("Yanında Duran");
-  if (completed >= 16) addBadge("Daha HAVA’lı");
+  if (completed >= 16) addBadge("Kırmızı Çizgisini Çeken");
 
   answers[currentIndex] = {
     title: question.title,
@@ -230,10 +239,24 @@ function showResult() {
     <li><strong>Sonraki adım:</strong> Kılavuzu indir, müdahale cümlelerini sakla, gerektiğinde güvenli bir yetişkine başvur.</li>
   `;
 
+  renderTones();
+
   $("#testResult").hidden = false;
   $("#testResult").scrollIntoView({ behavior: "smooth", block: "center" });
 
   confetti(42);
+}
+
+function renderTones() {
+  const target = $("#toneGrid");
+  if (!target) return;
+
+  target.innerHTML = data.tones.map((tone) => `
+    <article class="tone-card">
+      <strong>${escapeHtml(tone.title)}</strong>
+      <p>${escapeHtml(tone.text)}</p>
+    </article>
+  `).join("");
 }
 
 function restartTest() {
@@ -256,7 +279,7 @@ function resultToText() {
   const correctCount = answers.filter((answer) => answer && answer.correct).length;
 
   return [
-    "Daha HAVA’lı Test Sonucu",
+    "Kırmızı Çizgini Çek Test Sonucu",
     "",
     `Puan: ${score}`,
     `Rozet: ${level}`,
@@ -264,7 +287,7 @@ function resultToText() {
     "",
     "Hatırlanacak cümle: Bence burada duralım.",
     "",
-    "Zorbalığa gülmek değil, yanında durmak daha HAVA’lı."
+    "Gülme, geçme. Kırmızı çizgini çek."
   ].join("\n");
 }
 
@@ -300,7 +323,7 @@ function bindTestEvents() {
   $("#restartTestBtn").addEventListener("click", restartTest);
 
   $("#downloadResultBtn").addEventListener("click", () => {
-    downloadFile("daha-havali-test-sonucu.txt", resultToText());
+    downloadFile("kirmizi-cizgini-cek-test-sonucu.txt", resultToText());
   });
 
   $("#downloadGuideFromTestBtn").addEventListener("click", () => {
