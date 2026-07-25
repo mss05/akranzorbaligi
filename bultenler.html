@@ -1,1 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Bültenler | Kırmızı Çizgini Çek</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-icon">✎</span>
+      <span>
+        <small>Kampanya Sitesi</small>
+        <strong>Kırmızı Çizgini Çek</strong>
+      </span>
+    </a>
+
+    <nav class="nav">
+      <a href="index.html">Anasayfa</a>
+      <a href="biz-kimiz.html">Biz Kimiz</a>
+      <a href="destekler.html">Destekler</a>
+      <a href="test.html">Test</a>
+      <a href="kilavuz.html">Kılavuz</a>
+      <a href="arastirma-raporu.html">Rapor</a>
+      <a class="active" href="bultenler.html">Bülten</a>
+      <a class="nav-cta" href="cimer.html">CİMER Metni</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="page-hero split">
+      <div>
+        <p class="eyebrow">Basın odası</p>
+        <h1>Bültenler<br><span>ve duyurular.</span></h1>
+        <p class="lead">
+          Kampanyaya dair açıklamalar, basın metinleri ve resmi güncellemeler bu sayfada yer alır.
+        </p>
+      </div>
+
+      <img class="page-visual" src="bulletin-cover.png" alt="Basın odası ve bülten görseli" />
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <p>Bülten listesi</p>
+        <h2>Okunabilir ve kopyalanabilir.</h2>
+      </div>
+
+      <div class="card-grid three" id="bulletinCards"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <p>Tüm metinler</p>
+        <h2>Bülten detayları</h2>
+      </div>
+
+      <div class="bulletin-detail-list" id="bulletinDetails"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Kırmızı Çizgini Çek · Bültenler</span>
+    <span>© <span data-year></span></span>
+  </footer>
+</body>
+</html>
