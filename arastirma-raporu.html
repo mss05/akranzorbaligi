@@ -1,1 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Araştırma Raporu | Kırmızı Çizgini Çek</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-icon">✎</span>
+      <span>
+        <small>Kampanya Sitesi</small>
+        <strong>Kırmızı Çizgini Çek</strong>
+      </span>
+    </a>
+
+    <nav class="nav">
+      <a href="index.html">Anasayfa</a>
+      <a href="biz-kimiz.html">Biz Kimiz</a>
+      <a href="destekler.html">Destekler</a>
+      <a href="test.html">Test</a>
+      <a href="kilavuz.html">Kılavuz</a>
+      <a class="active" href="arastirma-raporu.html">Rapor</a>
+      <a href="bultenler.html">Bülten</a>
+      <a class="nav-cta" href="cimer.html">CİMER Metni</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="page-hero split">
+      <div>
+        <p class="eyebrow">Araştırma raporu</p>
+        <h1>Verilerle<br><span>bakınca.</span></h1>
+        <p class="lead">
+          Bu sayfa, kampanyanın yalnızca duyguya değil veriye de dayandığını gösterir.
+        </p>
+      </div>
+
+      <img class="page-cover" src="report-cover.png" alt="Akran zorbalığı araştırma raporu kapak görseli" />
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <p>Öne çıkan veriler</p>
+        <h2>Problem sessiz büyüyor.</h2>
+      </div>
+
+      <div class="stat-grid" id="statsGrid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <p>Veri görünümü</p>
+        <h2>Bulgular</h2>
+      </div>
+
+      <div class="bars">
+        <div class="bar-row">
+          <span>Tanık olma oranı</span>
+          <div class="bar"><i style="width:76.4%"></i></div>
+        </div>
+
+        <div class="bar-row">
+          <span>Hedef olma korkusuyla sessiz kalma</span>
+          <div class="bar"><i style="width:68.3%"></i></div>
+        </div>
+
+        <div class="bar-row">
+          <span>“Bence burada duralım” cümlesini uygulanabilir bulma</span>
+          <div class="bar"><i style="width:42.8%"></i></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Kırmızı Çizgini Çek · Araştırma Raporu</span>
+    <span>© <span data-year></span></span>
+  </footer>
+</body>
+</html>
