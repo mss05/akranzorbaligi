@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>CİMER Metni | Kırmızı Çizgini Çek</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-icon">✎</span>
+      <span>
+        <small>Kampanya Sitesi</small>
+        <strong>Kırmızı Çizgini Çek</strong>
+      </span>
+    </a>
+
+    <nav class="nav">
+      <a href="index.html">Anasayfa</a>
+      <a href="biz-kimiz.html">Biz Kimiz</a>
+      <a href="destekler.html">Destekler</a>
+      <a href="test.html">Test</a>
+      <a href="kilavuz.html">Kılavuz</a>
+      <a href="arastirma-raporu.html">Rapor</a>
+      <a href="bultenler.html">Bülten</a>
+      <a class="active nav-cta" href="cimer.html">CİMER Metni</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="page-hero">
+      <div>
+        <p class="eyebrow">İmza değil, aksiyon</p>
+        <h1>Metni kopyala,<br><span>CİMER’e yönlen.</span></h1>
+        <p class="lead">
+          Bu alan kişisel veri toplamaz. Metni kopyalarsın, sayaç artar ve istersen resmi başvuru kanalına geçersin.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="cimer-layout">
+        <article class="cimer-control">
+          <label class="input-label" for="pledgeName">Adın soyadın, opsiyonel</label>
+          <input class="text-input" id="pledgeName" type="text" placeholder="İstersen adını yazabilirsin" />
+
+          <div class="checklist">
+            <label>
+              <input type="checkbox" id="checkRead" />
+              Metni okudum.
+            </label>
+
+            <label>
+              <input type="checkbox" id="checkOwn" />
+              Başvuruyu kendi isteğimle yapacağım.
+            </label>
+
+            <label>
+              <input type="checkbox" id="checkEdit" />
+              Gerekirse metni kendime göre düzenleyeceğim.
+            </label>
+          </div>
+
+          <div class="actions vertical">
+            <button class="btn primary" type="button" id="copyCimerBtn">Metni Kopyala</button>
+            <button class="btn secondary" type="button" id="copyAndGoCimerBtn">Kopyala ve CİMER’e Git</button>
+            <button class="btn ghost" type="button" id="openCimerBtn">Sadece CİMER’i Aç</button>
+          </div>
+
+          <p class="mini-status" id="cimerStatus">Henüz kopyalanmadı.</p>
+
+          <div class="signature-counter">
+            <strong id="signatureCount">0</strong>
+            <span>kişi metni kopyaladı</span>
+          </div>
+        </article>
+
+        <textarea class="cimer-text" id="cimerText" readonly></textarea>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Kırmızı Çizgini Çek · CİMER Metni</span>
+    <span>© <span data-year></span></span>
+  </footer>
+</body>
+</html>
