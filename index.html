@@ -5,272 +5,180 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Kırmızı Çizgini Çek | Gülme, Geçme</title>
-  <meta name="description" content="Akran zorbalığına karşı farkındalık, test, kılavuz, bülten ve CİMER aksiyon sitesi." />
+  <meta name="description" content="Akran zorbalığına karşı farkındalık, test, kılavuz, araştırma raporu, bültenler ve CİMER yönlendirme sitesi." />
 
   <link rel="stylesheet" href="style.css" />
-  <script src="data.js" defer></script>
-  <script src="app.js" defer></script>
 </head>
 
-<body>
-  <header class="site-header">
-    <a class="brand" href="index.html">
-      <span class="brand-mark">✎</span>
-      <span>Kırmızı Çizgini Çek</span>
+<body class="kc-body">
+  <header class="kc-header">
+    <a class="kc-brand" href="index.html">
+      <span class="kc-brand-icon">✎</span>
+      <span>
+        <small>Kampanya Sitesi</small>
+        <strong>Kırmızı Çizgini Çek</strong>
+      </span>
     </a>
 
-    <nav class="desktop-nav">
-      <a href="#veriler">Araştırma</a>
-      <a href="#dedektor">Dedektör</a>
+    <nav class="kc-nav">
+      <a class="active" href="index.html">Anasayfa</a>
+      <a href="biz-kimiz.html">Biz Kimiz</a>
+      <a href="destekler.html">Destekler</a>
       <a href="test.html">Test</a>
-      <a href="#kilavuz">Kılavuz</a>
-      <a href="#bulten">Bülten</a>
-      <a href="#cimer" class="nav-cta">CİMER Metni</a>
+      <a href="kilavuz.html">Kılavuz</a>
+      <a href="arastirma-raporu.html">Rapor</a>
+      <a href="bultenler.html">Bülten</a>
+      <a class="kc-nav-cta" href="cimer.html">CİMER Metni</a>
     </nav>
   </header>
 
-  <main>
-    <section class="hero hero-home" id="ana">
-      <div class="hero-copy">
-        <p class="eyebrow">Akran zorbalığına karşı dijital farkındalık hareketi</p>
+  <main class="kc-main">
+    <section class="kc-hero">
+      <div class="kc-hero-copy">
+        <p class="kc-eyebrow">Akran zorbalığı, siber zorbalık, dışlama, mahremiyet</p>
 
         <h1>
           Gülme,<br>
           <span>Geçme.</span>
         </h1>
 
-        <p class="hero-lead">
-          “Sadece şakaydı” denilerek normalleştirilen davranışlara kırmızı çizgi çekiyoruz.
-          Bir davranış birini dışlıyor, küçültüyor, korkutuyor ya da susturuyorsa
-          adı şaka değil: <strong>zorbalık.</strong>
+        <p>
+          Zorbalığa seyirci kalma, kırmızı çizgini çek.
+          Senin sesin, bir başkası için güvenli alan olabilir.
         </p>
 
-        <div class="hero-actions">
-          <a class="btn primary" href="test.html">Çizgini Test Et</a>
-          <button class="btn secondary" type="button" id="guideReadTop">Kılavuzu Oku</button>
-          <button class="btn ghost" type="button" id="guideDownloadTop">Kılavuzu İndir</button>
+        <div class="kc-actions">
+          <a class="kc-btn primary" href="test.html">Zorbalık Testi</a>
+          <a class="kc-btn secondary" href="kilavuz.html">Kılavuzu Oku</a>
+          <a class="kc-btn ghost" href="cimer.html">CİMER Metni</a>
         </div>
       </div>
 
-      <div class="hero-phone" aria-hidden="true">
-        <div class="phone">
-          <div class="phone-notch"></div>
-
-          <div class="phone-notification">
-            <span>Yeni mesajınız var</span>
-            <small>şimdi</small>
-          </div>
-
-          <div class="phone-user">Şahit</div>
-
-          <div class="message-bubble">
-            Bence<br>
-            burada<br>
-            duralım.
-          </div>
-
-          <div class="phone-caption">
-            Kısa cümle. Net sınır. Güvenli müdahale.
-          </div>
-        </div>
+      <div class="kc-hero-image-card">
+        <img src="hero-child.png" alt="Elini dur işaretiyle kaldıran liseli genç kampanya görseli" />
       </div>
     </section>
 
-    <section class="stats-section" id="veriler">
-      <div class="section-head">
-        <p class="eyebrow">Araştırma verileri</p>
+    <section class="kc-quick-grid" aria-label="Ana yönlendirme kartları">
+      <a class="kc-quick-card red" href="test.html">
+        <span>01</span>
+        <h2>Zorbalık Testi</h2>
+        <p>Şaka mı, zorbalık mı? Senaryoları çöz, çizgini nerede çekeceğini gör.</p>
+      </a>
+
+      <a class="kc-quick-card" href="destekler.html">
+        <span>02</span>
+        <h2>Destekler</h2>
+        <p>Öğrenci, tanık, ebeveyn ve öğretmen için ayrı destek alanları.</p>
+      </a>
+
+      <a class="kc-quick-card" href="kilavuz.html">
+        <span>03</span>
+        <h2>Kılavuz</h2>
+        <p>Akran zorbalığına karşı uygulanabilir rehber ve güvenli adımlar.</p>
+      </a>
+
+      <a class="kc-quick-card red" href="cimer.html">
+        <span>04</span>
+        <h2>CİMER Metni</h2>
+        <p>Başvuru metnini kopyala, sayaç artsın, CİMER’e yönlen.</p>
+      </a>
+    </section>
+
+    <section class="kc-section">
+      <div class="kc-section-head">
+        <p>Araştırma raporu</p>
         <h2>Problem görünenden daha sessiz.</h2>
-        <p>
-          Zorbalık sadece zorba ve mağdur arasında yaşanmıyor. Çevredeki sessiz tanıkların
-          gülmesi, paylaşması veya hiçbir şey dememesiyle büyüyor.
-        </p>
       </div>
 
-      <div class="stats-grid">
-        <article class="stat-card">
-          <strong>%76.4</strong>
-          <h3>Zorbalığa tanık olma</h3>
-          <p>Gençlerin büyük kısmı akran zorbalığına tanık olduğunu söylüyor.</p>
-        </article>
+      <div class="kc-report-layout">
+        <a class="kc-cover-card" href="arastirma-raporu.html">
+          <img src="report-cover.png" alt="Akran zorbalığı araştırma raporu kapak görseli" />
+        </a>
 
-        <article class="stat-card">
-          <strong>%68.3</strong>
-          <h3>Sessiz kalma korkusu</h3>
-          <p>Tanıklar çoğu zaman kendisinin de hedef olacağından veya dışlanacağından korkuyor.</p>
-        </article>
+        <div class="kc-stat-grid">
+          <article>
+            <strong>%76.4</strong>
+            <h3>Zorbalığa tanık olma</h3>
+            <p>Gençlerin büyük kısmı akran zorbalığına doğrudan ya da dolaylı olarak tanık olduğunu söylüyor.</p>
+          </article>
 
-        <article class="stat-card">
-          <strong>%42.8</strong>
-          <h3>Uygulanabilir tepki</h3>
-          <p>“Bence burada duralım” kısa, barışçıl ve uygulanabilir bir müdahale cümlesi.</p>
-        </article>
-      </div>
-    </section>
+          <article>
+            <strong>%68.3</strong>
+            <h3>Sessiz kalma korkusu</h3>
+            <p>Tanıklar çoğu zaman kendisinin de hedef olacağından ya da dışlanacağından korkuyor.</p>
+          </article>
 
-    <section class="logic-section">
-      <div class="section-head left">
-        <p class="eyebrow">Kampanya mantığı</p>
-        <h2>Şakayı değil, etkisini oku.</h2>
-      </div>
-
-      <div class="logic-grid">
-        <article class="logic-card">
-          <span>01</span>
-          <h3>Şaka herkesi güldürür.</h3>
-          <p>Bir taraf utanıyor, susuyor veya geri çekiliyorsa orada karşılıklı eğlence yoktur.</p>
-        </article>
-
-        <article class="logic-card">
-          <span>02</span>
-          <h3>Zorbalık birini küçültür.</h3>
-          <p>Lakap, dışlama, gizli video, ekran görüntüsü veya alay kişinin güvenlik hissini zedeler.</p>
-        </article>
-
-        <article class="logic-card">
-          <span>03</span>
-          <h3>Tanık ortamı değiştirir.</h3>
-          <p>Gülmemek, paylaşmamak ve kısa bir sınır cümlesi kurmak zorbalığın sosyal ödülünü azaltır.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="detector-section" id="dedektor">
-      <div class="section-head">
-        <p class="eyebrow">Şaka savunması dedektörü</p>
-        <h2>Bu cümleleri duyunca dur.</h2>
-        <p>
-          Zorbalık çoğu zaman davranışla değil, davranışı savunan cümlelerle normalleştirilir.
-          Aşağıdaki kartlara tıkla, savunmanın arkasındaki problemi gör.
-        </p>
-      </div>
-
-      <div class="detector-grid" id="excuseGrid"></div>
-    </section>
-
-    <section class="test-promo">
-      <div class="test-promo-card">
-        <div>
-          <p class="eyebrow">Ayrı test merkezi</p>
-          <h2>16 senaryolu interaktif test</h2>
-          <p>
-            Test ayrı sayfada açılır. Her soruda seçim yaparsın, neden zorbalık olduğunu öğrenirsin,
-            puan ve rozet kazanırsın.
-          </p>
+          <article>
+            <strong>%42.8</strong>
+            <h3>Uygulanabilir cümle</h3>
+            <p>“Bence burada duralım” kısa, barışçıl ve uygulanabilir bir müdahale olarak öne çıkıyor.</p>
+          </article>
         </div>
-
-        <a class="btn primary" href="test.html">Testi Aç</a>
       </div>
     </section>
 
-    <section class="guide-section" id="kilavuz">
-      <div class="section-head">
-        <p class="eyebrow">Uygulanabilir kılavuz</p>
-        <h2>Kırmızı Çizgini Çek Kılavuzu</h2>
-        <p>
-          Öğrenci, tanık, ebeveyn ve okul tarafı için net adımlar içeren indirilebilir kılavuz.
-        </p>
+    <section class="kc-section">
+      <div class="kc-section-head">
+        <p>Destek alanları</p>
+        <h2>Kim ne yapabilir?</h2>
       </div>
 
-      <div class="guide-preview" id="guidePreview"></div>
+      <div class="kc-support-layout">
+        <a class="kc-image-link" href="destekler.html">
+          <img src="parent-support.png" alt="Ebeveyn ve genç destek görüşmesi görseli" />
+          <div>
+            <h3>Ebeveyn ve Öğrenci Desteği</h3>
+            <p>Dinlemek, yanında olduğunu hissettirmek ve doğru destek kanalına yönelmek.</p>
+          </div>
+        </a>
 
-      <div class="center-actions">
-        <button class="btn primary" type="button" id="guideReadBottom">Kılavuzu Oku</button>
-        <button class="btn secondary" type="button" id="guideDownloadBottom">Kılavuzu İndir</button>
+        <a class="kc-image-link dark" href="destekler.html">
+          <img src="cyber-bullying.png" alt="Siber zorbalık ve telefon baskısı görseli" />
+          <div>
+            <h3>Siber Zorbalık</h3>
+            <p>Mesaj, ekran görüntüsü, gizli video ve dijital alay gibi alanlarda güvenli adımlar.</p>
+          </div>
+        </a>
       </div>
     </section>
 
-    <section class="bulletin-section" id="bulten">
-      <div class="section-head left">
-        <p class="eyebrow">Basın odası</p>
-        <h2>Bültenler</h2>
-        <p>
-          Her bülten okunabilir, kopyalanabilir ve dosya olarak indirilebilir.
-        </p>
+    <section class="kc-section">
+      <div class="kc-section-head">
+        <p>Basın odası</p>
+        <h2>Bültenler ve duyurular</h2>
       </div>
 
-      <div class="bulletin-grid" id="bulletinGrid"></div>
-    </section>
+      <div class="kc-bulletin-layout">
+        <a class="kc-cover-card wide" href="bultenler.html">
+          <img src="bulletin-cover.png" alt="Basın bültenleri ve haber odası görseli" />
+        </a>
 
-    <section class="cimer-section" id="cimer">
-      <div class="cimer-card">
-        <div class="cimer-copy">
-          <p class="eyebrow">İmza değil, aksiyon</p>
-          <h2>CİMER başvuru metnini kopyala.</h2>
+        <div class="kc-bulletin-copy">
+          <h3>Kampanya bültenleri</h3>
           <p>
-            Bu alan kişisel veri toplamaz. Metni kopyalarsın, CİMER’e yönlenirsin,
-            kendi hesabınla kendi başvurunu yaparsın.
+            Basın bültenleri, kampanya duyuruları ve iletişim metinleri ayrı bir sayfada okunabilir,
+            kopyalanabilir ve indirilebilir şekilde yer alacak.
           </p>
 
-          <label class="input-label" for="pledgeName">Adın soyadın, opsiyonel</label>
-          <input class="text-input" id="pledgeName" type="text" placeholder="İstersen adını yazabilirsin" />
-
-          <div class="checklist">
-            <label>
-              <input type="checkbox" id="checkRead" />
-              Metni okudum.
-            </label>
-
-            <label>
-              <input type="checkbox" id="checkOwn" />
-              Başvuruyu kendi isteğimle yapacağım.
-            </label>
-
-            <label>
-              <input type="checkbox" id="checkEdit" />
-              Gerekirse metni kendime göre düzenleyeceğim.
-            </label>
-          </div>
-
-          <div class="cimer-actions">
-            <button class="btn primary" type="button" id="copyCimerBtn">Metni Kopyala</button>
-            <button class="btn secondary" type="button" id="copyAndGoCimerBtn">Kopyala ve CİMER’e Git</button>
-            <button class="btn ghost" type="button" id="openCimerBtn">Sadece CİMER’i Aç</button>
-          </div>
-
-          <p class="mini-status" id="cimerStatus">Henüz kopyalanmadı.</p>
-
-          <div class="signature-counter">
-            <strong id="signatureCount">0</strong>
-            <span>kişi metni kopyaladı</span>
-          </div>
+          <a class="kc-btn primary" href="bultenler.html">Bültenleri Aç</a>
         </div>
-
-        <textarea class="cimer-text" id="cimerText" readonly></textarea>
       </div>
     </section>
 
-    <section class="share-section">
-      <div class="section-head">
-        <p class="eyebrow">Paylaşım kitleri</p>
-        <h2>Sosyal medya metinleri</h2>
-        <p>Her karttaki metni tek tıkla kopyalayabilirsin.</p>
-      </div>
+    <section class="kc-slogan">
+      <img src="slogan-banner.png" alt="Gülme Geçme slogan görseli" />
 
-      <div class="share-grid" id="shareGrid"></div>
+      <div class="kc-slogan-overlay">
+        <a class="kc-btn primary" href="test.html">Çizgini Test Et</a>
+        <a class="kc-btn secondary" href="cimer.html">CİMER Metnine Git</a>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <span>Kırmızı Çizgini Çek · Gülme, geçme. Bence burada duralım.</span>
-    <span>© <span id="currentYear"></span></span>
+  <footer class="kc-footer">
+    <span>Kırmızı Çizgini Çek · Gülme, Geçme. · Bence burada duralım.</span>
+    <span>© 2026</span>
   </footer>
-
-  <div class="modal" id="contentModal" aria-hidden="true">
-    <div class="modal-backdrop" data-close-modal></div>
-
-    <article class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" type="button" data-close-modal aria-label="Kapat">×</button>
-
-      <p class="eyebrow" id="modalKicker">Kırmızı Çizgini Çek</p>
-      <h2 id="modalTitle">Başlık</h2>
-
-      <div class="modal-body" id="modalBody"></div>
-
-      <div class="modal-actions">
-        <button class="btn secondary" type="button" id="modalCopyBtn">Metni Kopyala</button>
-        <button class="btn primary" type="button" id="modalDownloadBtn">İndir</button>
-      </div>
-    </article>
-  </div>
 </body>
 </html>
