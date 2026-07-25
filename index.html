@@ -1,261 +1,234 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bence Burada Duralım | Akran Nezaketi Hareketi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-red: #E63946;
-            --dark-blue: #1D3557;
-            --light-blue: #457B9D;
-            --bg-gray: #F1FAEE;
-            --white: #FFFFFF;
-            --text-dark: #333333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg-gray); color: var(--text-dark); line-height: 1.6; scroll-behavior: smooth; }
+  <title>Daha HAVA’lı | Akran Zorbalığı Farkındalık Hareketi</title>
+  <meta name="description" content="Daha HAVA’lı akran zorbalığı farkındalık microsite. Şaka mı zorbalık mı testi, kılavuz, bültenler ve CİMER yönlendirmesi." />
 
-        /* --- HEADER --- */
-        header { background: var(--white); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .logo { font-size: 24px; font-weight: 900; color: var(--dark-blue); letter-spacing: -1px; }
-        .logo span { color: var(--primary-red); }
-        nav { display: flex; gap: 20px; }
-        nav a { text-decoration: none; color: var(--dark-blue); font-weight: 500; transition: color 0.3s; }
-        nav a:hover { color: var(--primary-red); }
-        .nav-btn { background: var(--primary-red); color: var(--white); padding: 8px 16px; border-radius: 20px; font-weight: 700; }
-        .nav-btn:hover { color: var(--white); opacity: 0.9; }
-
-        /* --- HERO SECTION --- */
-        .hero { background: linear-gradient(135deg, var(--dark-blue) 0%, #0a1128 100%); color: var(--white); padding: 100px 5%; text-align: center; }
-        .hero h1 { font-size: 54px; font-weight: 900; margin-bottom: 20px; line-height: 1.1; }
-        .hero-highlight { background-color: var(--primary-red); padding: 0 10px; transform: skew(-5deg); display: inline-block; }
-        .hero p { font-size: 20px; max-width: 800px; margin: 0 auto 40px; color: #A8DADC; }
-
-        /* --- DATA & STATS --- */
-        .stats-section { display: flex; justify-content: center; gap: 30px; padding: 0 5%; margin-top: -40px; flex-wrap: wrap; position: relative; z-index: 10; }
-        .stat-card { background: var(--white); padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; flex: 1; min-width: 250px; max-width: 320px; border-bottom: 4px solid var(--primary-red); }
-        .stat-card h3 { font-size: 48px; color: var(--primary-red); font-weight: 900; line-height: 1; margin-bottom: 10px; }
-        .stat-card p { font-weight: 700; color: var(--dark-blue); font-size: 16px; }
-        .stat-card span { font-size: 13px; color: #666; display: block; margin-top: 10px; }
-
-        /* --- INTERACTIVE TEST SECTION --- */
-        .test-section { padding: 80px 5%; background: var(--white); margin: 60px 0; }
-        .test-container { max-width: 800px; margin: 0 auto; background: var(--bg-gray); padding: 40px; border-radius: 16px; text-align: center; border: 2px dashed #ccc; }
-        .test-container h2 { font-size: 32px; color: var(--dark-blue); margin-bottom: 15px; }
-        .test-container p { margin-bottom: 30px; color: #555; }
-        
-        .quiz-box { background: var(--white); padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .question { font-size: 20px; font-weight: 700; margin-bottom: 25px; color: var(--dark-blue); }
-        .options { display: flex; flex-direction: column; gap: 15px; }
-        .option-btn { background: #f8f9fa; border: 2px solid #e9ecef; padding: 15px; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer; transition: 0.3s; }
-        .option-btn:hover { border-color: var(--light-blue); background: #e3f2fd; }
-        .result-box { display: none; padding: 20px; background: #ffebee; border-left: 5px solid var(--primary-red); border-radius: 8px; margin-top: 20px; text-align: left; }
-        .result-box h4 { color: var(--primary-red); margin-bottom: 10px; font-size: 20px; }
-
-        /* --- MANIFESTO & FORM --- */
-        .manifesto-section { display: flex; flex-wrap: wrap; gap: 50px; padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
-        .manifesto-text { flex: 1; min-width: 300px; }
-        .manifesto-text h2 { font-size: 36px; color: var(--dark-blue); margin-bottom: 20px; }
-        .manifesto-text p { font-size: 18px; margin-bottom: 20px; color: #444; }
-        .quote { font-style: italic; font-size: 22px; color: var(--primary-red); border-left: 4px solid var(--primary-red); padding-left: 20px; margin: 30px 0; font-weight: 700; }
-        
-        .form-box { flex: 1; min-width: 300px; background: var(--white); padding: 40px; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
-        .counter { text-align: center; margin-bottom: 30px; }
-        .counter h3 { font-size: 48px; color: var(--dark-blue); font-weight: 900; }
-        .counter p { font-size: 14px; text-transform: uppercase; color: var(--primary-red); font-weight: 700; letter-spacing: 1px; }
-        
-        .form-group { margin-bottom: 20px; }
-        .form-group input { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; background: #fafafa; }
-        .form-group input:focus { outline: none; border-color: var(--primary-red); }
-        .submit-btn { width: 100%; padding: 18px; background: var(--primary-red); color: var(--white); border: none; border-radius: 8px; font-size: 18px; font-weight: 700; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
-        .submit-btn:hover { background: #c81228; }
-
-        /* --- PR & PRESS ROOM --- */
-        .press-room { background: var(--dark-blue); padding: 80px 5%; color: var(--white); }
-        .press-header { text-align: center; margin-bottom: 50px; }
-        .press-header h2 { font-size: 36px; font-weight: 900; }
-        .press-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .press-card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s; }
-        .press-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.1); }
-        .press-date { font-size: 13px; color: var(--primary-red); font-weight: 700; margin-bottom: 10px; display: block; }
-        .press-card h4 { font-size: 20px; margin-bottom: 15px; line-height: 1.4; }
-        .press-card p { font-size: 14px; color: #A8DADC; margin-bottom: 20px; }
-        .press-link { color: var(--white); text-decoration: none; font-weight: 700; border-bottom: 2px solid var(--primary-red); padding-bottom: 2px; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 40px; }
-            nav { display: none; } /* Mobil menü için gizlendi, gerçekte hamburger menü eklenir */
-        }
-    </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
 </head>
+
 <body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Daha HAVA’lı ana sayfa">
+      <span class="brand-mark">✈</span>
+      <span>Daha HAVA’lı</span>
+    </a>
 
-    <!-- ÜST MENÜ -->
-    <header>
-        <div class="logo">Akran<span>Nezaketi</span></div>
-        <nav>
-            <a href="#istatistikler">Araştırma Verileri</a>
-            <a href="#test">Yüzleşme Testi</a>
-            <a href="#basin">Basın Odası</a>
-            <a href="#manifesto" class="nav-btn">İmzala</a>
-        </nav>
-    </header>
+    <nav class="desktop-nav" aria-label="Ana menü">
+      <a href="#veriler">Araştırma</a>
+      <a href="test.html">Test Merkezi</a>
+      <a href="#kilavuz">Kılavuz</a>
+      <a href="#bulten">Bültenler</a>
+      <a href="#cimer" class="nav-cta">CİMER Metni</a>
+    </nav>
+  </header>
 
-    <!-- HERO ALANI -->
-    <section class="hero">
-        <h1>Şaka Değil, Zorbalık.<br><span class="hero-highlight">Kırmızı Çizgini Çek.</span></h1>
-        <p>1.073 gençle konuştuk. Çoğumuz zorbalığa şahit oluyoruz ama dışlanma korkusuyla susuyoruz. Sessizliği bozma vakti geldi. Kahraman olmana gerek yok, sadece katılma.</p>
+  <main>
+    <section class="hero hero-home" id="ana">
+      <div class="hero-copy">
+        <p class="eyebrow">Akran zorbalığına karşı dijital farkındalık hareketi</p>
+
+        <h1>
+          Gülme,<br>
+          <span>Geçme.</span>
+        </h1>
+
+        <p class="hero-lead">
+          “Sadece şakaydı” denilerek normalleştirilen davranışları görünür kılıyoruz.
+          Çünkü bir davranış birini dışlıyor, küçültüyor, korkutuyor veya susturuyorsa
+          adı şaka değil: <strong>zorbalık.</strong>
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="test.html">Şaka mı Zorbalık mı Testine Başla</a>
+          <button class="btn secondary" type="button" id="guideReadTop">Kılavuzu Oku</button>
+          <button class="btn ghost" type="button" id="guideDownloadTop">Kılavuzu İndir</button>
+        </div>
+      </div>
+
+      <div class="hero-phone" aria-hidden="true">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-notification">
+            <span>Yeni mesajınız var</span>
+            <small>şimdi</small>
+          </div>
+          <div class="phone-user">Şahit</div>
+          <div class="message-bubble">Bence<br>burada<br>duralım.</div>
+          <div class="phone-caption">Kısa cümle. Net sınır. Güvenli müdahale.</div>
+        </div>
+      </div>
     </section>
 
-    <!-- ARAŞTIRMA İSTATİSTİKLERİ -->
-    <section class="stats-section" id="istatistikler">
-        <div class="stat-card">
-            <h3>%76</h3>
-            <p>Sessiz Tanıklar</p>
-            <span>Her 4 gençten 3'ü son 6 ayda zorbalığa şahit oldu ancak müdahale edemedi.</span>
-        </div>
-        <div class="stat-card">
-            <h3>%68</h3>
-            <p>Korku Çemberi</p>
-            <span>Şahit olanların büyük çoğunluğu "hedef olmaktan korktuğu için" sessiz kalıyor.</span>
-        </div>
-        <div class="stat-card">
-            <h3>%95</h3>
-            <p>Eğitim Şart</p>
-            <span>Toplumun %95'i okullardaki zorbalık önleme mekanizmalarını yetersiz buluyor.</span>
-        </div>
+    <section class="stats-section" id="veriler">
+      <div class="section-head">
+        <p class="eyebrow">Araştırma verileri</p>
+        <h2>Problem görünenden daha sessiz.</h2>
+        <p>
+          Zorbalık yalnızca zorba ve mağdur arasında yaşanmıyor. Çoğu zaman çevredeki
+          sessiz tanıkların gülmesi, paylaşması veya hiçbir şey dememesiyle büyüyor.
+        </p>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card">
+          <strong>%76.4</strong>
+          <h3>Zorbalığa tanık olma</h3>
+          <p>Gençlerin büyük kısmı son dönemde akran zorbalığına tanık olduğunu söylüyor.</p>
+        </article>
+
+        <article class="stat-card">
+          <strong>%68.3</strong>
+          <h3>Sessiz kalma nedeni</h3>
+          <p>Tanıklar çoğu zaman kendisinin de hedef olacağından veya dışlanacağından korkuyor.</p>
+        </article>
+
+        <article class="stat-card">
+          <strong>%42.8</strong>
+          <h3>En uygulanabilir tepki</h3>
+          <p>“Bence burada duralım” cümlesi kısa, barışçıl ve uygulanabilir bir müdahale olarak öne çıkıyor.</p>
+        </article>
+      </div>
     </section>
 
-    <!-- İNTERAKTİF TEST -->
-    <section class="test-section" id="test">
-        <div class="test-container">
-            <h2>Şaka mı, Zorbalık mı? Yüzleşme Testi</h2>
-            <p>Arkadaş grubunda yaşananlar gerçekten şaka mı, yoksa sınırları aşıyor mu? Test et.</p>
-            
-            <div class="quiz-box" id="quizBox">
-                <div class="question" id="questionText">Soru 1: Ortak WhatsApp grubunda, bir arkadaşınızın habersiz çekilmiş komik bir fotoğrafı paylaşıldı ve herkes gülüyor. Bu sence nedir?</div>
-                <div class="options" id="optionsBox">
-                    <button class="option-btn" onclick="checkAnswer(0)">A) Sadece masum bir şaka, ben de gülerim.</button>
-                    <button class="option-btn" onclick="checkAnswer(1)">B) Emin değilim, duruma göre değişir.</button>
-                    <button class="option-btn" onclick="checkAnswer(2)">C) Bu bir siber zorbalıktır. "Bence burada duralım" derim.</button>
-                </div>
-                <div class="result-box" id="resultBox">
-                    <h4>Araştırmamıza Göre...</h4>
-                    <p>Gençlerin <strong>%68.8'i</strong> zorbalık olan davranışların "şaka" adı altında normalleştirildiğini söylüyor. Gülüp geçmek seni komik yapmaz, zorbalığın sessiz bir onaylayıcısı yapar. Ankete katılanların en çok tercih ettiği müdahale cümlesiyle cevap ver: <strong>"Bence burada duralım."</strong></p>
-                    <button class="nav-btn" style="margin-top:15px; border:none; cursor:pointer;" onclick="document.getElementById('manifesto').scrollIntoView();">Hemen Söz Ver</button>
-                </div>
-            </div>
-        </div>
+    <section class="logic-section">
+      <div class="section-head left">
+        <p class="eyebrow">Kampanya mantığı</p>
+        <h2>Şakayı değil, etkisini oku.</h2>
+      </div>
+
+      <div class="logic-grid">
+        <article class="logic-card">
+          <span>01</span>
+          <h3>Şaka herkesi güldürür.</h3>
+          <p>Bir taraf utanıyor, susuyor veya kendini geri çekiyorsa orada karşılıklı eğlence yoktur.</p>
+        </article>
+
+        <article class="logic-card">
+          <span>02</span>
+          <h3>Zorbalık birini küçültür.</h3>
+          <p>Lakap, dışlama, gizli video, ekran görüntüsü veya alay kişinin güvenlik hissini zedeler.</p>
+        </article>
+
+        <article class="logic-card">
+          <span>03</span>
+          <h3>Tanık ortamı değiştirir.</h3>
+          <p>Gülmemek, paylaşmamak ve kısa bir sınır cümlesi kurmak zorbalığın sosyal ödülünü azaltır.</p>
+        </article>
+      </div>
     </section>
 
-    <!-- MANİFESTO VE İMZA KAMPANYASI -->
-    <section class="manifesto-section" id="manifesto">
-        <div class="manifesto-text">
-            <h2>Daha HAVA'LI Bir Duruş</h2>
-            <p>Sessiz kalmak bir tarafsızlık değil, zorbalığı besleyen en büyük güçtür. Zorbalığı yapan kişi, etrafındaki gülümsemelerden ve sessizlikten cesaret alır.</p>
-            <div class="quote">"Bir zorbalığa şahit olduğumda gülmeyeceğim, paylaşmayacağım ve gerekirse 'bence burada duralım' diyerek kırmızı çizgimi çekeceğim."</div>
-            <p>Sen de bu manifestoya imza at, akran nezaketi hareketinin bir parçası ol. Topladığımız her imza, okullara sunacağımız "Eğitim Modülü" talebimizi güçlendirecek.</p>
+    <section class="test-promo">
+      <div class="test-promo-card">
+        <div>
+          <p class="eyebrow">Ayrı test merkezi</p>
+          <h2>16 senaryolu interaktif test</h2>
+          <p>
+            Test ayrı sayfada açılır. Her soruda seçim yaparsın, neden zorbalık olduğunu öğrenirsin,
+            puan ve rozet kazanırsın.
+          </p>
         </div>
-        
-        <div class="form-box">
-            <div class="counter">
-                <h3 id="signatureCount">4.521</h3>
-                <p>Genç Çizgisini Çekti</p>
-            </div>
-            <div class="form-group">
-                <input type="text" id="name" placeholder="Adınız Soyadınız">
-            </div>
-            <div class="form-group">
-                <input type="email" id="email" placeholder="E-posta Adresiniz">
-            </div>
-            <div class="form-group">
-                <label style="font-size: 13px; color: #666; display: flex; gap: 10px; align-items: start;">
-                    <input type="checkbox" id="kvkk" style="width: auto; margin-top: 3px;">
-                    Kampanya iletişimleri için KVKK metnini okudum ve onaylıyorum.
-                </label>
-            </div>
-            <button class="submit-btn" onclick="signManifesto()">Söz Veriyorum</button>
-        </div>
+
+        <a class="btn primary" href="test.html">Testi Aç</a>
+      </div>
     </section>
 
-    <!-- PR / BASIN ODASI -->
-    <section class="press-room" id="basin">
-        <div class="press-header">
-            <h2>Kampanya Basın Odası</h2>
-            <p>Medyada ve kurumlarda "Akran Nezaketi" hareketinin yansımaları.</p>
-        </div>
-        <div class="press-grid">
-            <div class="press-card">
-                <span class="press-date">12 EYLÜL 2026 | ARAŞTIRMA RAPORU</span>
-                <h4>Türkiye Geneli Akran Zorbalığı Algı Araştırması Sonuçlandı</h4>
-                <p>1.073 lise ve üniversite öğrencisiyle yapılan araştırmaya göre, gençlerin %76'sı zorbalığa şahit oluyor ancak dışlanma korkusuyla müdahale edemiyor...</p>
-                <a href="#" class="press-link">Bülteni İndir (PDF)</a>
-            </div>
-            <div class="press-card">
-                <span class="press-date">18 EYLÜL 2026 | MARKA İŞ BİRLİĞİ</span>
-                <h4>Okula Dönüşte Anlamlı Kampanya: "Kırmızı Çizgini Çek"</h4>
-                <p>Sektör lideri kırtasiye markası sponsorluğunda hazırlanan "Kırmızı Kalem" seti, zorbalığa karşı duruş sergileyen gençlerin yeni sembolü oluyor...</p>
-                <a href="#" class="press-link">Basın Kiti İndir (ZIP)</a>
-            </div>
-            <div class="press-card">
-                <span class="press-date">24 EYLÜL 2026 | EĞİTİM MODÜLÜ</span>
-                <h4>MEB'e Çağrı: "Okullarda Akran Nezaketi Modülü Uygulansın"</h4>
-                <p>Toplanan 10.000'i aşkın imza ve araştırma verileri eşliğinde hazırlanan eğitim modülü taslağı, yetkili mercilere ve okul yönetimlerine sunuldu...</p>
-                <a href="#" class="press-link">Detayları Oku</a>
-            </div>
-        </div>
+    <section class="guide-section" id="kilavuz">
+      <div class="section-head">
+        <p class="eyebrow">Uygulanabilir kılavuz</p>
+        <h2>Daha HAVA’lı Akran Zorbalığı Kılavuzu</h2>
+        <p>
+          Öğrenci, tanık, ebeveyn ve okul tarafı için net adımlar içeren indirilebilir kılavuz.
+        </p>
+      </div>
+
+      <div class="guide-preview" id="guidePreview"></div>
+
+      <div class="center-actions">
+        <button class="btn primary" type="button" id="guideReadBottom">Kılavuzu Oku</button>
+        <button class="btn secondary" type="button" id="guideDownloadBottom">Kılavuzu İndir</button>
+      </div>
     </section>
 
-    <script>
-        // --- Basit Quiz Mantığı ---
-        function checkAnswer(optionIndex) {
-            const options = document.querySelectorAll('.option-btn');
-            options.forEach(btn => btn.style.display = 'none'); // Şıkları gizle
-            
-            const resultBox = document.getElementById('resultBox');
-            resultBox.style.display = 'block'; // Sonucu göster
-            
-            const questionText = document.getElementById('questionText');
-            questionText.innerText = "Yüzleşme Tamamlandı.";
-        }
+    <section class="bulletin-section" id="bulten">
+      <div class="section-head left">
+        <p class="eyebrow">Basın odası</p>
+        <h2>Bültenler</h2>
+        <p>
+          Her bülten okunabilir, kopyalanabilir ve dosya olarak indirilebilir.
+        </p>
+      </div>
 
-        // --- Sayaç ve İmza Mantığı ---
-        // Veriyi LocalStorage'da tutarak sayfa yenilense de artışın görünmesini sağlama
-        let currentSignatures = parseInt(localStorage.getItem('manifestoCount')) || 4521;
-        document.getElementById('signatureCount').innerText = currentSignatures.toLocaleString('tr-TR');
+      <div class="bulletin-grid" id="bulletinGrid"></div>
+    </section>
 
-        function signManifesto() {
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const kvkk = document.getElementById('kvkk').checked;
+    <section class="cimer-section" id="cimer">
+      <div class="cimer-card">
+        <div class="cimer-copy">
+          <p class="eyebrow">İmza değil, aksiyon</p>
+          <h2>CİMER başvuru metnini kopyala.</h2>
+          <p>
+            Bu alan kişisel veri toplamaz. Metni kopyalarsın, CİMER’e gidersin,
+            kendi hesabınla kendi başvurunu yaparsın.
+          </p>
 
-            if(!name || !email || !kvkk) {
-                alert("Lütfen formu eksiksiz doldurun ve onay kutusunu işaretleyin.");
-                return;
-            }
+          <label class="input-label" for="pledgeName">Adın soyadın, opsiyonel</label>
+          <input class="text-input" id="pledgeName" type="text" placeholder="İstersen adını yazabilirsin" />
 
-            // Sayacı artır ve kaydet
-            currentSignatures++;
-            localStorage.setItem('manifestoCount', currentSignatures);
-            document.getElementById('signatureCount').innerText = currentSignatures.toLocaleString('tr-TR');
+          <div class="cimer-actions">
+            <button class="btn primary" type="button" id="copyCimerBtn">Metni Kopyala</button>
+            <button class="btn secondary" type="button" id="openCimerBtn">CİMER’e Git</button>
+          </div>
 
-            // Başarı geri bildirimi
-            const btn = document.querySelector('.submit-btn');
-            btn.innerHTML = "Harekete Katıldın! 🚀";
-            btn.style.background = "var(--light-blue)";
-            
-            // Formu temizle
-            setTimeout(() => {
-                document.getElementById('name').value = '';
-                document.getElementById('email').value = '';
-                document.getElementById('kvkk').checked = false;
-                btn.innerHTML = "Söz Veriyorum";
-                btn.style.background = "var(--primary-red)";
-            }, 3000);
-        }
-    </script>
+          <p class="mini-status" id="cimerStatus">Henüz kopyalanmadı.</p>
+
+          <div class="signature-counter">
+            <strong id="signatureCount">0</strong>
+            <span>kişi metni kopyaladı</span>
+          </div>
+        </div>
+
+        <textarea class="cimer-text" id="cimerText" readonly></textarea>
+      </div>
+    </section>
+
+    <section class="share-section">
+      <div class="section-head">
+        <p class="eyebrow">Paylaşım kitleri</p>
+        <h2>Sosyal medya metinleri</h2>
+        <p>Her karttaki metni tek tıkla kopyalayabilirsin.</p>
+      </div>
+
+      <div class="share-grid" id="shareGrid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Daha HAVA’lı · Zorbalığa gülmek değil, yanında durmak.</span>
+    <span>© <span id="currentYear"></span></span>
+  </footer>
+
+  <div class="modal" id="contentModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+
+    <article class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" data-close-modal aria-label="Kapat">×</button>
+
+      <p class="eyebrow" id="modalKicker">Daha HAVA’lı</p>
+      <h2 id="modalTitle">Başlık</h2>
+
+      <div class="modal-body" id="modalBody"></div>
+
+      <div class="modal-actions">
+        <button class="btn secondary" type="button" id="modalCopyBtn">Metni Kopyala</button>
+        <button class="btn primary" type="button" id="modalDownloadBtn">İndir</button>
+      </div>
+    </article>
+  </div>
 </body>
 </html>
