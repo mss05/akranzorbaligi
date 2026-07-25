@@ -1,5 +1,4 @@
-const data = window.DAHA_HAVALI_DATA;
-
+const data = window.KIRMIZI_CIZGI_DATA;
 const $ = (selector) => document.querySelector(selector);
 
 function escapeHtml(value) {
@@ -108,7 +107,7 @@ function guideToHtmlDocument() {
   </style>
 </head>
 <body>
-  <p class="tagline">Daha HAVA’lı · Zorbalığa gülmek değil, yanında durmak.</p>
+  <p class="tagline">Kırmızı Çizgini Çek · Gülme, geçme. Bence burada duralım.</p>
   <h1>${escapeHtml(data.guide.title)}</h1>
   ${sections}
 </body>
@@ -127,6 +126,18 @@ function bulletinToText(bulletin) {
     "",
     `Alıntı: ${bulletin.quote}`
   ].join("\n\n");
+}
+
+function renderExcuses() {
+  const target = $("#excuseGrid");
+  if (!target) return;
+
+  target.innerHTML = data.excuses.map((item, index) => `
+    <article class="detector-card" data-excuse-card>
+      <button type="button" data-toggle-excuse="${index}">“${escapeHtml(item.title)}”</button>
+      <p class="detector-answer">${escapeHtml(item.answer)}</p>
+    </article>
+  `).join("");
 }
 
 function renderGuidePreview() {
@@ -176,7 +187,7 @@ function renderShareTexts() {
   `).join("");
 }
 
-function openModal({ kicker = "Daha HAVA’lı", title, bodyHtml, copyTextValue, downloadFileName, downloadContent }) {
+function openModal({ kicker = "Kırmızı Çizgini Çek", title, bodyHtml, copyTextValue, downloadFileName, downloadContent }) {
   const modal = $("#contentModal");
 
   $("#modalKicker").textContent = kicker;
@@ -189,6 +200,7 @@ function openModal({ kicker = "Daha HAVA’lı", title, bodyHtml, copyTextValue,
   copyBtn.onclick = async () => {
     const success = await copyText(copyTextValue);
     copyBtn.textContent = success ? "Kopyalandı" : "Kopyalanamadı";
+
     setTimeout(() => {
       copyBtn.textContent = "Metni Kopyala";
     }, 1600);
@@ -261,18 +273,16 @@ function updateCimerText() {
 }
 
 function updateSignatureCount(increment = false) {
-  const key = "dahaHavaliSignatureCount";
-  const copiedKey = "dahaHavaliCimerCopied";
+  const key = "kirmiziCizgiSignatureCount";
   let count = parseInt(localStorage.getItem(key), 10);
 
   if (Number.isNaN(count)) {
     count = 4521;
   }
 
-  if (increment && localStorage.getItem(copiedKey) !== "true") {
+  if (increment) {
     count += 1;
     localStorage.setItem(key, String(count));
-    localStorage.setItem(copiedKey, "true");
   }
 
   const target = $("#signatureCount");
@@ -281,13 +291,54 @@ function updateSignatureCount(increment = false) {
   }
 }
 
+function checklistReady() {
+  const read = $("#checkRead")?.checked;
+  const own = $("#checkOwn")?.checked;
+  const edit = $("#checkEdit")?.checked;
+
+  return Boolean(read && own && edit);
+}
+
+async function copyCimerText({ goAfterCopy = false } = {}) {
+  updateCimerText();
+
+  if (!checklistReady()) {
+    $("#cimerStatus").textContent =
+      "Önce üç kutucuğu işaretle. Sonra metni kopyalayıp CİMER’e geçebilirsin.";
+    return;
+  }
+
+  const success = await copyText($("#cimerText").value);
+
+  if (success) {
+    updateSignatureCount(true);
+    $("#cimerStatus").textContent =
+      "Metin kopyalandı. Sayaç arttı. Şimdi CİMER’e gidip başvuru alanına yapıştırabilirsin.";
+
+    if (goAfterCopy) {
+      setTimeout(() => {
+        window.open(data.cimerUrl, "_blank", "noopener,noreferrer");
+      }, 550);
+    }
+  } else {
+    $("#cimerStatus").textContent =
+      "Metin kopyalanamadı. Manuel olarak seçip kopyalayabilirsin.";
+  }
+}
+
 function bindEvents() {
   document.addEventListener("click", async (event) => {
+    const excuseBtn = event.target.closest("[data-toggle-excuse]");
     const readBulletinBtn = event.target.closest("[data-read-bulletin]");
     const copyBulletinBtn = event.target.closest("[data-copy-bulletin]");
     const downloadBulletinBtn = event.target.closest("[data-download-bulletin]");
     const copyShareBtn = event.target.closest("[data-copy-share]");
     const closeModalBtn = event.target.closest("[data-close-modal]");
+
+    if (excuseBtn) {
+      const card = excuseBtn.closest("[data-excuse-card]");
+      card.classList.toggle("open");
+    }
 
     if (readBulletinBtn) {
       openBulletinModal(readBulletinBtn.dataset.readBulletin);
@@ -299,6 +350,7 @@ function bindEvents() {
 
       const success = await copyText(bulletinToText(bulletin));
       copyBulletinBtn.textContent = success ? "Kopyalandı" : "Hata";
+
       setTimeout(() => {
         copyBulletinBtn.textContent = "Kopyala";
       }, 1500);
@@ -317,6 +369,7 @@ function bindEvents() {
 
       const success = await copyText(item.text);
       copyShareBtn.textContent = success ? "Kopyalandı" : "Hata";
+
       setTimeout(() => {
         copyShareBtn.textContent = "Metni Kopyala";
       }, 1500);
@@ -340,17 +393,12 @@ function bindEvents() {
 
   $("#pledgeName")?.addEventListener("input", updateCimerText);
 
-  $("#copyCimerBtn")?.addEventListener("click", async () => {
-    updateCimerText();
+  $("#copyCimerBtn")?.addEventListener("click", () => {
+    copyCimerText({ goAfterCopy: false });
+  });
 
-    const success = await copyText($("#cimerText").value);
-    $("#cimerStatus").textContent = success
-      ? "Metin kopyalandı. Şimdi CİMER’e gidip başvuru alanına yapıştırabilirsin."
-      : "Metin kopyalanamadı. Manuel olarak seçip kopyalayabilirsin.";
-
-    if (success) {
-      updateSignatureCount(true);
-    }
+  $("#copyAndGoCimerBtn")?.addEventListener("click", () => {
+    copyCimerText({ goAfterCopy: true });
   });
 
   $("#openCimerBtn")?.addEventListener("click", () => {
@@ -367,6 +415,7 @@ function bindEvents() {
 function initHomePage() {
   $("#currentYear").textContent = new Date().getFullYear();
 
+  renderExcuses();
   renderGuidePreview();
   renderBulletins();
   renderShareTexts();
