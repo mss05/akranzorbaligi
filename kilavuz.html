@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Kılavuz | Kırmızı Çizgini Çek</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-icon">✎</span>
+      <span>
+        <small>Kampanya Sitesi</small>
+        <strong>Kırmızı Çizgini Çek</strong>
+      </span>
+    </a>
+
+    <nav class="nav">
+      <a href="index.html">Anasayfa</a>
+      <a href="biz-kimiz.html">Biz Kimiz</a>
+      <a href="destekler.html">Destekler</a>
+      <a href="test.html">Test</a>
+      <a class="active" href="kilavuz.html">Kılavuz</a>
+      <a href="arastirma-raporu.html">Rapor</a>
+      <a href="bultenler.html">Bülten</a>
+      <a class="nav-cta" href="cimer.html">CİMER Metni</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="page-hero">
+      <div>
+        <p class="eyebrow">Uygulanabilir kılavuz</p>
+        <h1>Bilmek<br><span>ilk adım.</span></h1>
+        <p class="lead">
+          Zorbalığın nasıl tanınacağı, tanıkların ne yapabileceği ve güvenli destek yolları bu kılavuzun temelini oluşturur.
+        </p>
+
+        <div class="actions">
+          <button class="btn primary" type="button" id="downloadGuideBtn">Kılavuzu İndir</button>
+          <a class="btn secondary" href="cimer.html">CİMER Metni</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <p>Kılavuz içeriği</p>
+        <h2>Temel başlıklar</h2>
+      </div>
+
+      <div class="card-grid three" id="guideGrid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <p>Müdahale cümleleri</p>
+        <h2>Kısa ve güvenli cümleler</h2>
+      </div>
+
+      <div class="card-grid three">
+        <article class="info-card red">
+          <h3>Bence burada duralım.</h3>
+          <p>En kısa ve en güvenli sınır cümlesi.</p>
+        </article>
+
+        <article class="info-card">
+          <h3>Bu şaka değil.</h3>
+          <p>Davranışın normalleştirilmesini durdurur.</p>
+        </article>
+
+        <article class="info-card red">
+          <h3>İstersen birlikte söyleyelim.</h3>
+          <p>Mağdura yalnız olmadığını hissettirir.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Kırmızı Çizgini Çek · Kılavuz</span>
+    <span>© <span data-year></span></span>
+  </footer>
+</body>
+</html>
