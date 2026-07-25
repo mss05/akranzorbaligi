@@ -4,161 +4,148 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Test Merkezi | Şaka mı Zorbalık mı?</title>
-  <meta name="description" content="Kırmızı Çizgini Çek Şaka mı Zorbalık mı testi." />
+  <title>Test Merkezi | Kırmızı Çizgini Çek</title>
 
   <link rel="stylesheet" href="style.css" />
   <script src="data.js" defer></script>
   <script src="test.js" defer></script>
 </head>
 
-<body class="test-body">
+<body>
   <header class="site-header">
     <a class="brand" href="index.html">
-      <span class="brand-mark">✎</span>
-      <span>Kırmızı Çizgini Çek</span>
+      <span class="brand-icon">✎</span>
+      <span>
+        <small>Kampanya Sitesi</small>
+        <strong>Kırmızı Çizgini Çek</strong>
+      </span>
     </a>
 
-    <nav class="desktop-nav">
-      <a href="index.html">Ana Sayfa</a>
-      <a href="index.html#kilavuz">Kılavuz</a>
-      <a href="index.html#bulten">Bültenler</a>
-      <a href="index.html#cimer" class="nav-cta">CİMER Metni</a>
+    <nav class="nav">
+      <a href="index.html">Anasayfa</a>
+      <a href="biz-kimiz.html">Biz Kimiz</a>
+      <a href="destekler.html">Destekler</a>
+      <a class="active" href="test.html">Test</a>
+      <a href="kilavuz.html">Kılavuz</a>
+      <a href="arastirma-raporu.html">Rapor</a>
+      <a href="bultenler.html">Bülten</a>
+      <a class="nav-cta" href="cimer.html">CİMER Metni</a>
     </nav>
   </header>
 
-  <main>
+  <main class="main">
     <section class="test-hero">
       <div>
-        <p class="eyebrow">Test merkezi</p>
-
-        <h1>
-          Şaka mı,<br>
-          <span>Zorbalık mı?</span>
-        </h1>
-
-        <p>
+        <p class="eyebrow">Test Merkezi</p>
+        <h1>Şaka mı,<br><span>zorbalık mı?</span></h1>
+        <p class="lead">
           Her senaryo “şaka” gibi sunulan ama aslında sınır ihlali barındıran bir durumu gösterir.
-          Doğru yerde kırmızı çizgini çek, açıklamayı oku, güvenli müdahale cümleni öğren.
+          Doğru yerde kırmızı çizgini çek.
         </p>
       </div>
 
-      <div class="test-score-card">
+      <article class="score-card">
         <span>Puan</span>
-        <strong id="testScore">0</strong>
-        <small id="testLevel">Seyirci</small>
-      </div>
+        <strong id="score">0</strong>
+        <small id="level">Seyirci</small>
+      </article>
     </section>
 
-    <section class="redline-section">
+    <section class="redline-wrap">
       <div class="redline-label">
         <span>Kırmızı çizgi ilerlemesi</span>
         <strong id="redlineText">0%</strong>
       </div>
-
-      <div class="redline">
-        <span id="redlineFill"></span>
-      </div>
+      <div class="redline"><i id="redlineFill"></i></div>
     </section>
 
-    <section class="quiz-shell" id="quiz">
+    <section class="quiz-layout" id="quizArea">
       <aside class="quiz-side">
-        <div class="side-card">
+        <article>
           <p>İlerleme</p>
-          <strong id="testCounter">1 / 16</strong>
+          <strong id="counter">1 / 16</strong>
+        </article>
 
-          <div class="progress large">
-            <span id="testProgress"></span>
-          </div>
-        </div>
-
-        <div class="side-card">
+        <article>
           <p>Seri</p>
-          <strong id="testStreak">0</strong>
-          <small>Üst üste doğru cevaplar</small>
-        </div>
+          <strong id="streak">0</strong>
+        </article>
 
-        <div class="side-card">
+        <article>
           <p>Rozetler</p>
-          <div class="badges" id="testBadges"></div>
-        </div>
+          <div class="badges" id="badges"></div>
+        </article>
       </aside>
 
-      <article class="quiz-main">
+      <article class="quiz-card">
         <div class="quiz-top">
-          <span class="pill" id="quizCategory">Kategori</span>
+          <span class="pill" id="category">Kategori</span>
           <span id="questionNumber">Soru 1</span>
         </div>
 
-        <h2 id="quizTitle">Yükleniyor...</h2>
-        <p id="quizScenario"></p>
+        <h2 id="questionTitle">Yükleniyor...</h2>
+        <p id="scenario"></p>
 
-        <div class="quiz-options">
-          <button class="option-card" type="button" data-answer="joke">
+        <div class="options">
+          <button type="button" data-answer="joke">
             <strong>Şaka</strong>
             <span>Masum olabilir.</span>
           </button>
 
-          <button class="option-card" type="button" data-answer="unsure">
+          <button type="button" data-answer="unsure">
             <strong>Emin değilim</strong>
             <span>Duruma göre değişebilir.</span>
           </button>
 
-          <button class="option-card" type="button" data-answer="bullying">
+          <button type="button" data-answer="bullying">
             <strong>Zorbalık</strong>
             <span>Burada sınır aşılmış.</span>
           </button>
         </div>
 
-        <div class="feedback-panel" id="quizFeedback" hidden>
-          <div class="feedback-heading">
-            <span id="feedbackMark">!</span>
+        <div class="feedback" id="feedback" hidden>
+          <div class="feedback-head">
+            <span id="feedbackIcon">!</span>
             <strong id="feedbackTitle">Bu zorbalık.</strong>
           </div>
 
           <p id="feedbackExplanation"></p>
 
-          <div class="mini-info blue">
+          <div class="mini-box blue">
             <small>Neden zorbalık?</small>
             <p id="feedbackWhy"></p>
           </div>
 
-          <div class="mini-info red">
+          <div class="mini-box red">
             <small>O anda ne diyebilirsin?</small>
             <p id="feedbackAction"></p>
           </div>
 
-          <button class="btn primary full" type="button" id="nextQuestionBtn">Sonraki soru</button>
+          <button class="btn primary full" type="button" id="nextBtn">Sonraki soru</button>
         </div>
       </article>
     </section>
 
-    <section class="result-section" id="testResult" hidden>
-      <div class="result-card">
+    <section class="result-section" id="resultSection" hidden>
+      <article class="result-card">
         <p class="eyebrow">Test tamamlandı</p>
         <h2 id="resultTitle">Kırmızı Çizgi Rozeti</h2>
         <p id="resultText"></p>
 
         <ul class="result-list" id="resultList"></ul>
 
-        <div class="tone-box">
-          <h3>“Bence burada duralım” cümlesini hangi tonla kurarsın?</h3>
-
-          <div class="tone-grid" id="toneGrid"></div>
-        </div>
-
-        <div class="center-actions">
+        <div class="actions center">
           <button class="btn primary" type="button" id="downloadResultBtn">Sonuç Kartımı İndir</button>
-          <button class="btn secondary" type="button" id="downloadGuideFromTestBtn">Kılavuzu İndir</button>
-          <button class="btn ghost" type="button" id="restartTestBtn">Testi Yeniden Başlat</button>
+          <a class="btn secondary" href="kilavuz.html">Kılavuzu Oku</a>
+          <button class="btn ghost" type="button" id="restartBtn">Testi Yeniden Başlat</button>
         </div>
-      </div>
+      </article>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <span>Kırmızı Çizgini Çek Test Merkezi</span>
-    <a href="index.html">Ana sayfaya dön</a>
+  <footer class="footer">
+    <span>Kırmızı Çizgini Çek · Test Merkezi</span>
+    <span>© <span data-year></span></span>
   </footer>
 </body>
 </html>
