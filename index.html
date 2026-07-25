@@ -8,19 +8,21 @@
   <meta name="description" content="Akran zorbalığına karşı farkındalık, test, kılavuz, araştırma raporu, bültenler ve CİMER yönlendirme sitesi." />
 
   <link rel="stylesheet" href="style.css" />
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
 </head>
 
-<body class="kc-body">
-  <header class="kc-header">
-    <a class="kc-brand" href="index.html">
-      <span class="kc-brand-icon">✎</span>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-icon">✎</span>
       <span>
         <small>Kampanya Sitesi</small>
         <strong>Kırmızı Çizgini Çek</strong>
       </span>
     </a>
 
-    <nav class="kc-nav">
+    <nav class="nav">
       <a class="active" href="index.html">Anasayfa</a>
       <a href="biz-kimiz.html">Biz Kimiz</a>
       <a href="destekler.html">Destekler</a>
@@ -28,104 +30,86 @@
       <a href="kilavuz.html">Kılavuz</a>
       <a href="arastirma-raporu.html">Rapor</a>
       <a href="bultenler.html">Bülten</a>
-      <a class="kc-nav-cta" href="cimer.html">CİMER Metni</a>
+      <a class="nav-cta" href="cimer.html">CİMER Metni</a>
     </nav>
   </header>
 
-  <main class="kc-main">
-    <section class="kc-hero">
-      <div class="kc-hero-copy">
-        <p class="kc-eyebrow">Akran zorbalığı, siber zorbalık, dışlama, mahremiyet</p>
+  <main class="main">
+    <section class="hero">
+      <article class="hero-copy">
+        <p class="eyebrow">Akran zorbalığı, siber zorbalık, dışlama, mahremiyet</p>
 
         <h1>
           Gülme,<br>
           <span>Geçme.</span>
         </h1>
 
-        <p>
+        <p class="lead">
           Zorbalığa seyirci kalma, kırmızı çizgini çek.
           Senin sesin, bir başkası için güvenli alan olabilir.
         </p>
 
-        <div class="kc-actions">
-          <a class="kc-btn primary" href="test.html">Zorbalık Testi</a>
-          <a class="kc-btn secondary" href="kilavuz.html">Kılavuzu Oku</a>
-          <a class="kc-btn ghost" href="cimer.html">CİMER Metni</a>
+        <div class="actions">
+          <a class="btn primary" href="test.html">Zorbalık Testi</a>
+          <a class="btn secondary" href="kilavuz.html">Kılavuzu Oku</a>
+          <a class="btn ghost" href="cimer.html">CİMER Metni</a>
         </div>
-      </div>
+      </article>
 
-      <div class="kc-hero-image-card">
+      <article class="hero-image">
         <img src="hero-child.png" alt="Elini dur işaretiyle kaldıran liseli genç kampanya görseli" />
-      </div>
+      </article>
     </section>
 
-    <section class="kc-quick-grid" aria-label="Ana yönlendirme kartları">
-      <a class="kc-quick-card red" href="test.html">
+    <section class="quick-grid">
+      <a class="quick-card red" href="test.html">
         <span>01</span>
         <h2>Zorbalık Testi</h2>
         <p>Şaka mı, zorbalık mı? Senaryoları çöz, çizgini nerede çekeceğini gör.</p>
       </a>
 
-      <a class="kc-quick-card" href="destekler.html">
+      <a class="quick-card" href="destekler.html">
         <span>02</span>
         <h2>Destekler</h2>
         <p>Öğrenci, tanık, ebeveyn ve öğretmen için ayrı destek alanları.</p>
       </a>
 
-      <a class="kc-quick-card" href="kilavuz.html">
+      <a class="quick-card" href="kilavuz.html">
         <span>03</span>
         <h2>Kılavuz</h2>
         <p>Akran zorbalığına karşı uygulanabilir rehber ve güvenli adımlar.</p>
       </a>
 
-      <a class="kc-quick-card red" href="cimer.html">
+      <a class="quick-card red" href="cimer.html">
         <span>04</span>
         <h2>CİMER Metni</h2>
         <p>Başvuru metnini kopyala, sayaç artsın, CİMER’e yönlen.</p>
       </a>
     </section>
 
-    <section class="kc-section">
-      <div class="kc-section-head">
+    <section class="section">
+      <div class="section-head">
         <p>Araştırma raporu</p>
         <h2>Problem görünenden daha sessiz.</h2>
       </div>
 
-      <div class="kc-report-layout">
-        <a class="kc-cover-card" href="arastirma-raporu.html">
+      <div class="report-layout">
+        <a class="cover-card" href="arastirma-raporu.html">
           <img src="report-cover.png" alt="Akran zorbalığı araştırma raporu kapak görseli" />
         </a>
 
-        <div class="kc-stat-grid">
-          <article>
-            <strong>%76.4</strong>
-            <h3>Zorbalığa tanık olma</h3>
-            <p>Gençlerin büyük kısmı akran zorbalığına doğrudan ya da dolaylı olarak tanık olduğunu söylüyor.</p>
-          </article>
-
-          <article>
-            <strong>%68.3</strong>
-            <h3>Sessiz kalma korkusu</h3>
-            <p>Tanıklar çoğu zaman kendisinin de hedef olacağından ya da dışlanacağından korkuyor.</p>
-          </article>
-
-          <article>
-            <strong>%42.8</strong>
-            <h3>Uygulanabilir cümle</h3>
-            <p>“Bence burada duralım” kısa, barışçıl ve uygulanabilir bir müdahale olarak öne çıkıyor.</p>
-          </article>
-        </div>
+        <div class="stat-grid" id="statsGrid"></div>
       </div>
     </section>
 
-    <section class="kc-section">
-      <div class="kc-section-head">
+    <section class="section">
+      <div class="section-head">
         <p>Destek alanları</p>
         <h2>Kim ne yapabilir?</h2>
       </div>
 
-      <div class="kc-support-layout">
-        <a class="kc-image-link" href="destekler.html">
+      <div class="image-link-grid">
+        <a class="image-link" href="destekler.html">
           <img src="parent-support.png" alt="Ebeveyn ve genç destek görüşmesi görseli" />
           <div>
             <h3>Ebeveyn ve Öğrenci Desteği</h3>
@@ -133,7 +117,7 @@
           </div>
         </a>
 
-        <a class="kc-image-link dark" href="destekler.html">
+        <a class="image-link" href="destekler.html">
           <img src="cyber-bullying.png" alt="Siber zorbalık ve telefon baskısı görseli" />
           <div>
             <h3>Siber Zorbalık</h3>
@@ -143,42 +127,41 @@
       </div>
     </section>
 
-    <section class="kc-section">
-      <div class="kc-section-head">
+    <section class="section">
+      <div class="section-head">
         <p>Basın odası</p>
         <h2>Bültenler ve duyurular</h2>
       </div>
 
-      <div class="kc-bulletin-layout">
-        <a class="kc-cover-card wide" href="bultenler.html">
+      <div class="bulletin-home">
+        <a class="cover-card wide" href="bultenler.html">
           <img src="bulletin-cover.png" alt="Basın bültenleri ve haber odası görseli" />
         </a>
 
-        <div class="kc-bulletin-copy">
+        <article class="text-card">
           <h3>Kampanya bültenleri</h3>
           <p>
             Basın bültenleri, kampanya duyuruları ve iletişim metinleri ayrı bir sayfada okunabilir,
-            kopyalanabilir ve indirilebilir şekilde yer alacak.
+            kopyalanabilir ve indirilebilir şekilde yer alır.
           </p>
-
-          <a class="kc-btn primary" href="bultenler.html">Bültenleri Aç</a>
-        </div>
+          <a class="btn primary" href="bultenler.html">Bültenleri Aç</a>
+        </article>
       </div>
     </section>
 
-    <section class="kc-slogan">
+    <section class="slogan-banner">
       <img src="slogan-banner.png" alt="Gülme Geçme slogan görseli" />
 
-      <div class="kc-slogan-overlay">
-        <a class="kc-btn primary" href="test.html">Çizgini Test Et</a>
-        <a class="kc-btn secondary" href="cimer.html">CİMER Metnine Git</a>
+      <div class="slogan-actions">
+        <a class="btn primary" href="test.html">Çizgini Test Et</a>
+        <a class="btn secondary" href="cimer.html">CİMER Metnine Git</a>
       </div>
     </section>
   </main>
 
-  <footer class="kc-footer">
+  <footer class="footer">
     <span>Kırmızı Çizgini Çek · Gülme, Geçme. · Bence burada duralım.</span>
-    <span>© 2026</span>
+    <span>© <span data-year></span></span>
   </footer>
 </body>
 </html>
