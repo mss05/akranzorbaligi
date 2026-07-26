@@ -1732,3 +1732,139 @@ p {
     min-height: auto;
   }
 }
+/* GUIDE PDF TEMPLATE - kc-022 */
+
+.pdf-stage {
+  position: fixed;
+  left: -99999px;
+  top: 0;
+  width: 794px;
+  pointer-events: none;
+}
+
+.guide-pdf {
+  width: 794px;
+  height: 1123px;
+  padding: 46px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background:
+    radial-gradient(circle at top left, rgba(201, 10, 10, 0.10), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(13, 44, 70, 0.08), transparent 30%),
+    #fffaf4;
+  color: #111111;
+  border: 2px solid rgba(17, 17, 17, 0.08);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.guide-pdf-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 18px;
+  border-bottom: 3px solid #c90a0a;
+}
+
+.guide-pdf-header img {
+  width: 230px;
+  height: auto;
+  display: block;
+}
+
+.guide-pdf-header span {
+  color: #0d2c46;
+  font-size: 16px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.guide-pdf-hero {
+  padding: 28px 0 20px;
+}
+
+.guide-pdf-hero p {
+  margin: 0 0 10px;
+  color: #c90a0a;
+  font-size: 14px;
+  font-weight: 950;
+  letter-spacing: 0.16em;
+}
+
+.guide-pdf-hero h2 {
+  margin: 0 0 18px;
+  font-size: 74px;
+  line-height: 0.85;
+  letter-spacing: -0.08em;
+  font-weight: 950;
+}
+
+.guide-pdf-hero h2 span {
+  color: #c90a0a;
+}
+
+.guide-pdf-hero strong {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 999px;
+  color: white;
+  background: #c90a0a;
+  font-size: 17px;
+  font-weight: 950;
+}
+
+.guide-pdf-content {
+  display: grid;
+  gap: 12px;
+}
+
+.guide-pdf-item {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid rgba(17, 17, 17, 0.10);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.guide-pdf-item span {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  background: #0d2c46;
+  font-size: 15px;
+  font-weight: 950;
+}
+
+.guide-pdf-item h3 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 950;
+}
+
+.guide-pdf-item p {
+  margin: 0;
+  color: #5e5750;
+  font-size: 13.5px;
+  line-height: 1.42;
+  font-weight: 700;
+}
+
+.guide-pdf-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 18px;
+  border-top: 3px solid #c90a0a;
+  color: #111111;
+  font-size: 15px;
+  font-weight: 950;
+}
