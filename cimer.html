@@ -6,19 +6,15 @@
 
   <title>CİMER Metni | Kırmızı Çizgini Çek</title>
 
-  <link rel="stylesheet" href="style.css" />
-  <script src="data.js" defer></script>
-  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="site.css?v=kc-004" />
+  <script src="data.js?v=kc-004" defer></script>
+  <script src="app.js?v=kc-004" defer></script>
 </head>
 
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html">
-      <span class="brand-icon">✎</span>
-      <span>
-        <small>Kampanya Sitesi</small>
-        <strong>Kırmızı Çizgini Çek</strong>
-      </span>
+    <a class="brand" href="index.html" aria-label="Anasayfa">
+      <img class="brand-logo" src="logo.png?v=kc-004" alt="Kırmızı Çizgini Çek logosu">
     </a>
 
     <nav class="nav">
@@ -35,34 +31,34 @@
 
   <main class="main">
     <section class="page-hero">
-      <div>
+      <article class="page-copy">
         <p class="eyebrow">İmza değil, aksiyon</p>
         <h1>Metni kopyala,<br><span>CİMER’e yönlen.</span></h1>
         <p class="lead">
           Bu alan kişisel veri toplamaz. Metni kopyalarsın, sayaç artar ve istersen resmi başvuru kanalına geçersin.
         </p>
-      </div>
+      </article>
     </section>
 
     <section class="section">
       <div class="cimer-layout">
         <article class="cimer-control">
           <label class="input-label" for="pledgeName">Adın soyadın, opsiyonel</label>
-          <input class="text-input" id="pledgeName" type="text" placeholder="İstersen adını yazabilirsin" />
+          <input class="text-input" id="pledgeName" type="text" placeholder="İstersen adını yazabilirsin">
 
           <div class="checklist">
             <label>
-              <input type="checkbox" id="checkRead" />
+              <input type="checkbox" id="checkRead">
               Metni okudum.
             </label>
 
             <label>
-              <input type="checkbox" id="checkOwn" />
+              <input type="checkbox" id="checkOwn">
               Başvuruyu kendi isteğimle yapacağım.
             </label>
 
             <label>
-              <input type="checkbox" id="checkEdit" />
+              <input type="checkbox" id="checkEdit">
               Gerekirse metni kendime göre düzenleyeceğim.
             </label>
           </div>
