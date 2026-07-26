@@ -268,3 +268,4 @@ Okullarda akran zorbalığına karşı önleyici, kapsayıcı ve sürdürülebil
     action: "Yalnız değilsin. İstersen bunu birlikte rehberliğe söyleyelim."
   }
 ]
+};
