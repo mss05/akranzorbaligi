@@ -3,10 +3,11 @@ const QUESTIONS = DATA.quizQuestions;
 
 const levels = [
   { min: 0, name: "Seyirci" },
-  { min: 1, name: "Fark Eden" },
-  { min: 2, name: "Şaka Maskesini Gören" },
-  { min: 3, name: "Yanında Duran" },
-  { min: 4, name: "Kırmızı Çizgisini Çeken" }
+  { min: 3, name: "Fark Eden" },
+  { min: 6, name: "Şaka Maskesini Gören" },
+  { min: 9, name: "Ses Çıkaran" },
+  { min: 12, name: "Yanında Duran" },
+  { min: 16, name: "Kırmızı Çizgisini Çeken" }
 ];
 
 let currentIndex = 0;
