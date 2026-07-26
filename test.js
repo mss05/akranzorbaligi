@@ -3,11 +3,10 @@ const QUESTIONS = DATA.quizQuestions;
 
 const levels = [
   { min: 0, name: "Seyirci" },
-  { min: 3, name: "Fark Eden" },
-  { min: 6, name: "Şaka Maskesini Gören" },
-  { min: 9, name: "Ses Çıkaran" },
-  { min: 12, name: "Yanında Duran" },
-  { min: 16, name: "Kırmızı Çizgisini Çeken" }
+  { min: 1, name: "Fark Eden" },
+  { min: 2, name: "Şaka Maskesini Gören" },
+  { min: 3, name: "Yanında Duran" },
+  { min: 4, name: "Kırmızı Çizgisini Çeken" }
 ];
 
 let currentIndex = 0;
@@ -108,7 +107,6 @@ function answerQuestion(selected, button) {
     button.style.background = "rgba(201, 10, 10, 0.08)";
 
     addBadge("Maskeyi düşürdün");
-    confetti(14);
   } else if (selected === "unsure") {
     score += 55;
     streak = 0;
@@ -133,10 +131,8 @@ function answerQuestion(selected, button) {
 
   completed = Math.max(completed, currentIndex + 1);
 
-  if (completed >= 4) addBadge("Gülme Geçme");
-  if (completed >= 8) addBadge("Sessiz Kalmayan");
-  if (completed >= 12) addBadge("Yanında Duran");
-  if (completed >= 16) addBadge("Kırmızı Çizgisini Çeken");
+  if (completed >= 2) addBadge("Gülme Geçme");
+  if (completed >= 4) addBadge("Kırmızı Çizgisini Çeken");
 
   answers[currentIndex] = { selected, correct };
 
@@ -175,8 +171,6 @@ function showResult() {
 
   $("#resultSection").hidden = false;
   $("#resultSection").scrollIntoView({ behavior: "smooth", block: "center" });
-
-  confetti(42);
 }
 
 function restartTest() {
@@ -217,25 +211,6 @@ function downloadFile(filename, content) {
 
   a.remove();
   URL.revokeObjectURL(url);
-}
-
-function confetti(count) {
-  const colors = ["#c90a0a", "#0d2c46", "#111111", "#fffaf4"];
-
-  for (let i = 0; i < count; i++) {
-    const piece = document.createElement("span");
-
-    piece.className = "confetti";
-    piece.style.left = `${Math.random() * 100}vw`;
-    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-    piece.style.animationDelay = `${Math.random() * 0.25}s`;
-
-    document.body.appendChild(piece);
-
-    setTimeout(() => {
-      piece.remove();
-    }, 1350);
-  }
 }
 
 function bindEvents() {
