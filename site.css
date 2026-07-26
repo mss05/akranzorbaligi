@@ -1213,3 +1213,50 @@ p {
     transform: scale(1.15) !important;
   }
 }
+/* LOGO FIX 2 - kırpılmayı durdur */
+
+.site-header {
+  min-height: 124px !important;
+  padding: 0 24px !important;
+  align-items: center !important;
+}
+
+.brand {
+  width: 430px !important;
+  height: 100px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: visible !important;
+  border-radius: 18px !important;
+}
+
+.brand-logo {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: none !important;
+  display: block !important;
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    min-height: 96px !important;
+    padding: 0 14px !important;
+  }
+
+  .brand {
+    width: 280px !important;
+    height: 72px !important;
+    overflow: visible !important;
+  }
+
+  .brand-logo {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: none !important;
+  }
+}
