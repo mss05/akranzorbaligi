@@ -18,7 +18,7 @@ function setYear() {
 
 function renderStats() {
   const target = $("#statsGrid");
-  if (!target) return;
+  if (!target || !DATA?.stats) return;
 
   target.innerHTML = DATA.stats.map((item) => `
     <article class="stat-card">
@@ -31,7 +31,7 @@ function renderStats() {
 
 function renderSupports() {
   const target = $("#supportGrid");
-  if (!target) return;
+  if (!target || !DATA?.supports) return;
 
   target.innerHTML = DATA.supports.map((group) => `
     <article class="support-card">
@@ -46,7 +46,7 @@ function renderSupports() {
 
 function renderGuide() {
   const target = $("#guideGrid");
-  if (!target) return;
+  if (!target || !DATA?.guideSections) return;
 
   target.innerHTML = DATA.guideSections.map((item) => `
     <article class="info-card">
@@ -58,7 +58,7 @@ function renderGuide() {
 
 function renderBulletinCards() {
   const target = $("#bulletinCards");
-  if (!target) return;
+  if (!target || !DATA?.bulletins) return;
 
   target.innerHTML = DATA.bulletins.map((item) => `
     <article class="bulletin-card">
@@ -72,7 +72,7 @@ function renderBulletinCards() {
 
 function renderBulletinDetails() {
   const target = $("#bulletinDetails");
-  if (!target) return;
+  if (!target || !DATA?.bulletins) return;
 
   target.innerHTML = DATA.bulletins.map((item) => `
     <article class="bulletin-detail" id="${escapeHtml(item.id)}">
@@ -81,7 +81,7 @@ function renderBulletinDetails() {
       <p><strong>${escapeHtml(item.excerpt)}</strong></p>
       ${item.body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
       <button class="btn primary" type="button" data-copy-bulletin="${escapeHtml(item.id)}">Metni Kopyala</button>
-      <button class="btn secondary" type="button" data-download-bulletin="${escapeHtml(item.id)}">İndir</button>
+      <button class="btn secondary" type="button" data-download-bulletin="${escapeHtml(item.id)}">Bülteni İndir</button>
     </article>
   `).join("");
 }
@@ -98,18 +98,6 @@ function getBulletinText(id) {
     "",
     ...bulletin.body
   ].join("\n\n");
-}
-
-function guideToText() {
-  return [
-    "Kırmızı Çizgini Çek Akran Zorbalığı Kılavuzu",
-    "",
-    ...DATA.guideSections.flatMap((item, index) => [
-      `${index + 1}. ${item.title}`,
-      item.text,
-      ""
-    ])
-  ].join("\n");
 }
 
 function downloadFile(filename, content, type = "text/plain;charset=utf-8") {
@@ -143,9 +131,76 @@ async function copyText(text) {
   }
 }
 
+/* GUIDE PDF */
+
+function renderGuidePdfTemplate() {
+  const target = $("#guidePdfContent");
+  if (!target || !DATA?.guideSections) return;
+
+  target.innerHTML = DATA.guideSections.map((item, index) => `
+    <article class="guide-pdf-item">
+      <span>${String(index + 1).padStart(2, "0")}</span>
+      <div>
+        <h3>${escapeHtml(item.title)}</h3>
+        <p>${escapeHtml(item.text)}</p>
+      </div>
+    </article>
+  `).join("");
+}
+
+async function downloadGuidePdf() {
+  renderGuidePdfTemplate();
+
+  const template = $("#guidePdfTemplate");
+
+  if (!template) {
+    alert("PDF şablonu bulunamadı.");
+    return;
+  }
+
+  if (typeof html2canvas === "undefined") {
+    alert("PDF oluşturma kütüphanesi yüklenemedi.");
+    return;
+  }
+
+  const jsPDFClass = window.jspdf && window.jspdf.jsPDF;
+
+  if (!jsPDFClass) {
+    alert("PDF kütüphanesi yüklenemedi.");
+    return;
+  }
+
+  const canvas = await html2canvas(template, {
+    scale: 2,
+    useCORS: true,
+    backgroundColor: "#fffaf4"
+  });
+
+  const imgData = canvas.toDataURL("image/png");
+  const pdf = new jsPDFClass("p", "pt", "a4");
+
+  const pageWidth = pdf.internal.pageSize.getWidth();
+  const pageHeight = pdf.internal.pageSize.getHeight();
+
+  const margin = 18;
+  const imgWidth = pageWidth - margin * 2;
+  const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+  const finalHeight = Math.min(imgHeight, pageHeight - margin * 2);
+  const finalWidth = (canvas.width * finalHeight) / canvas.height;
+
+  const x = (pageWidth - finalWidth) / 2;
+  const y = margin;
+
+  pdf.addImage(imgData, "PNG", x, y, finalWidth, finalHeight);
+  pdf.save("kirmizi-cizgini-cek-akran-zorbaligi-kilavuzu.pdf");
+}
+
+/* CIMER */
+
 function updateCimerText() {
   const textarea = $("#cimerText");
-  if (!textarea) return;
+  if (!textarea || !DATA?.cimerText) return;
 
   const name = $("#pledgeName")?.value.trim();
   const signatureLine = name ? `\n\nBaşvuru sahibi: ${name}` : "";
@@ -211,6 +266,8 @@ async function handleCopyCimer(goAfter = false) {
   }
 }
 
+/* EVENTS */
+
 function bindEvents() {
   document.addEventListener("click", async (event) => {
     const copyBulletinBtn = event.target.closest("[data-copy-bulletin]");
@@ -231,9 +288,7 @@ function bindEvents() {
     }
   });
 
-  $("#downloadGuideBtn")?.addEventListener("click", () => {
-    downloadFile("kirmizi-cizgini-cek-kilavuz.txt", guideToText());
-  });
+  $("#downloadGuideBtn")?.addEventListener("click", downloadGuidePdf);
 
   $("#pledgeName")?.addEventListener("input", updateCimerText);
 
@@ -255,6 +310,7 @@ function init() {
   renderStats();
   renderSupports();
   renderGuide();
+  renderGuidePdfTemplate();
   renderBulletinCards();
   renderBulletinDetails();
   updateCimerText();
