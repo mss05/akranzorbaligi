@@ -6,15 +6,21 @@
 
   <title>Kılavuz | Kırmızı Çizgini Çek</title>
 
-  <link rel="stylesheet" href="site.css?v=kc-004" />
-  <script src="data.js?v=kc-004" defer></script>
-  <script src="app.js?v=kc-004" defer></script>
+  <link rel="stylesheet" href="site.css?v=kc-022" />
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
+
+  <script src="data.js?v=kc-022" defer></script>
+  <script src="app.js?v=kc-022" defer></script>
 </head>
 
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Anasayfa">
-      <img class="brand-logo" src="logo.png?v=kc-004" alt="Kırmızı Çizgini Çek logosu">
+    <a class="brand" href="index.html" aria-label="Kırmızı Çizgini Çek anasayfa">
+      <span class="brand-logo-box">
+        <img class="brand-logo" src="logo-header.png?v=kc-022" alt="Kırmızı Çizgini Çek logosu">
+      </span>
     </a>
 
     <nav class="nav">
@@ -39,7 +45,7 @@
         </p>
 
         <div class="actions">
-          <button class="btn primary" type="button" id="downloadGuideBtn">Kılavuzu İndir</button>
+          <button class="btn primary" type="button" id="downloadGuideBtn">Kılavuzu PDF İndir</button>
           <a class="btn secondary" href="cimer.html">CİMER Metni</a>
         </div>
       </article>
@@ -75,6 +81,28 @@
           <h3>İstersen birlikte söyleyelim.</h3>
           <p>Mağdura yalnız olmadığını hissettirir.</p>
         </article>
+      </div>
+    </section>
+
+    <section class="pdf-stage" aria-hidden="true">
+      <div class="guide-pdf" id="guidePdfTemplate">
+        <div class="guide-pdf-header">
+          <img src="logo-header.png?v=kc-022" alt="Kırmızı Çizgini Çek logosu">
+          <span>Akran Zorbalığı Kılavuzu</span>
+        </div>
+
+        <div class="guide-pdf-hero">
+          <p>KILAVUZ</p>
+          <h2>Bilmek<br><span>ilk adım.</span></h2>
+          <strong>Gülme, Geçme. Bence burada duralım.</strong>
+        </div>
+
+        <div class="guide-pdf-content" id="guidePdfContent"></div>
+
+        <div class="guide-pdf-footer">
+          <span>Kırmızı Çizgini Çek</span>
+          <span>kirmizicizginicek</span>
+        </div>
       </div>
     </section>
   </main>
