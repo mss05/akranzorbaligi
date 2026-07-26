@@ -84,8 +84,9 @@ textarea {
 }
 
 .brand-logo {
-  width: auto;
-  height: 54px;
+  width: 280px;
+  height: auto;
+  max-height: 68px;
   object-fit: contain;
 }
 
