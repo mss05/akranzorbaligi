@@ -132,8 +132,11 @@ function answerQuestion(selected, button) {
 
   completed = Math.max(completed, currentIndex + 1);
 
-  if (completed >= 2) addBadge("Gülme Geçme");
-  if (completed >= 4) addBadge("Kırmızı Çizgisini Çeken");
+  if (completed >= 4) addBadge("Gülme Geçme");
+if (completed >= 8) addBadge("Sessiz Kalmayan");
+if (completed >= 12) addBadge("Yanında Duran");
+if (completed >= 16) addBadge("Kırmızı Çizgisini Çeken");
+
 
   answers[currentIndex] = { selected, correct };
 
