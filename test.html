@@ -6,15 +6,21 @@
 
   <title>Test Merkezi | Kırmızı Çizgini Çek</title>
 
-  <link rel="stylesheet" href="site.css?v=kc-013" />
-  <script src="data.js?v=kc-013" defer></script>
-  <script src="test.js?v=kc-013" defer></script>
+  <link rel="stylesheet" href="site.css?v=kc-020" />
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
+
+  <script src="data.js?v=kc-020" defer></script>
+  <script src="test.js?v=kc-020" defer></script>
 </head>
 
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Anasayfa">
-      <img class="brand-logo" src="logo.png?v=kc-004" alt="Kırmızı Çizgini Çek logosu">
+    <a class="brand" href="index.html" aria-label="Kırmızı Çizgini Çek anasayfa">
+      <span class="brand-logo-box">
+        <img class="brand-logo" src="logo-header.png?v=kc-020" alt="Kırmızı Çizgini Çek logosu">
+      </span>
     </a>
 
     <nav class="nav">
@@ -59,7 +65,7 @@
       <aside class="quiz-side">
         <article>
           <p>İlerleme</p>
-          <strong id="counter">1 / 16</strong>
+          <strong id="counter">0 / 16</strong>
         </article>
 
         <article>
@@ -131,11 +137,36 @@
         <ul class="result-list" id="resultList"></ul>
 
         <div class="actions center">
-          <button class="btn primary" type="button" id="downloadResultBtn">Sonuç Kartımı İndir</button>
+          <button class="btn primary" type="button" id="downloadCardBtn">Kartı İndir</button>
+          <button class="btn secondary" type="button" id="shareCardBtn">Kartı Paylaş</button>
+          <button class="btn ghost" type="button" id="downloadResultPdfBtn">Sonuç PDF İndir</button>
           <a class="btn secondary" href="kilavuz.html">Kılavuzu Oku</a>
           <button class="btn ghost" type="button" id="restartBtn">Testi Yeniden Başlat</button>
         </div>
       </article>
+    </section>
+
+    <section class="share-card-stage" aria-hidden="true">
+      <div class="share-card" id="shareCard">
+        <div class="share-card-top">
+          <img src="logo-header.png?v=kc-020" alt="Kırmızı Çizgini Çek logosu" class="share-card-logo">
+          <span class="share-card-badge" id="shareBadge">Seyirci</span>
+        </div>
+
+        <div class="share-card-body">
+          <p class="share-card-eyebrow">TEST SONUCU</p>
+          <h2>Gülme,<br>Geçme.</h2>
+          <p class="share-card-score">Puan: <strong id="shareScore">0</strong></p>
+          <p class="share-card-text" id="shareText">
+            Şaka gibi görünen davranışların zorbalık olduğunu fark ettim.
+          </p>
+        </div>
+
+        <div class="share-card-bottom">
+          <span>Bence burada duralım.</span>
+          <span>kirmizicizginicek</span>
+        </div>
+      </div>
     </section>
   </main>
 
