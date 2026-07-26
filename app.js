@@ -21,7 +21,7 @@ function renderStats() {
   if (!target) return;
 
   target.innerHTML = DATA.stats.map((item) => `
-    <article>
+    <article class="stat-card">
       <strong>${escapeHtml(item.value)}</strong>
       <h3>${escapeHtml(item.title)}</h3>
       <p>${escapeHtml(item.text)}</p>
