@@ -1171,3 +1171,45 @@ p {
     flex-direction: column;
   }
 }
+/* LOGO FIX - kc-008 */
+
+.site-header {
+  min-height: 112px !important;
+  padding: 0 24px !important;
+}
+
+.brand {
+  width: 420px !important;
+  height: 88px !important;
+  display: flex !important;
+  align-items: center !important;
+  overflow: hidden !important;
+  border-radius: 18px !important;
+}
+
+.brand-logo {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  transform: scale(1.12) !important;
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    min-height: 88px !important;
+    padding: 0 14px !important;
+  }
+
+  .brand {
+    width: 280px !important;
+    height: 66px !important;
+  }
+
+  .brand-logo {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transform: scale(1.15) !important;
+  }
+}
